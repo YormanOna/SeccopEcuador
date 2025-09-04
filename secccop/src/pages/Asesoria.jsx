@@ -28,49 +28,49 @@ export default function Asesoria() {
 
   const servicios = [
     {
-      icon: "🎯",
-      title: "Consultoría Estratégica",
-      description: "Análisis y diagnóstico de necesidades tecnológicas de tu organización",
-      features: ["Auditoría tecnológica", "Roadmap de implementación", "KPIs y métricas"]
+      icon: "🤟",
+      title: "Capacitación en Lengua de Señas",
+      description: "Formación especializada en LSEC para instituciones y empresas inclusivas",
+      features: ["Cursos corporativos LSEC", "Certificación oficial", "Modalidad flexible"]
     },
     {
-      icon: "👥",
-      title: "Capacitación Corporativa",
-      description: "Programas de formación personalizados para equipos de trabajo",
-      features: ["Cursos in-company", "Mentorías grupales", "Certificaciones"]
+      icon: "🎨",
+      title: "Talleres de Artes y Oficios",
+      description: "Programas de formación en técnicas artísticas y emprendimiento creativo",
+      features: ["Decoración con globos", "Porcelana fría", "Técnicas de moldeo"]
     },
     {
-      icon: "🚀",
-      title: "Transformación Digital",
-      description: "Acompañamiento en procesos de modernización y digitalización",
-      features: ["Migración a la nube", "Automatización", "Buenas prácticas DevOps"]
+      icon: "🏢",
+      title: "Capacitación Empresarial",
+      description: "Programas personalizados de formación para el fortalecimiento de habilidades",
+      features: ["Talleres in-company", "Fortalecimiento de competencias", "Certificaciones especializadas"]
     }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-purple-600 to-blue-600 text-white py-16">
+      <section className="bg-blue-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Asesoría Profesional Especializada
+              Asesoría en Capacitación Especializada
             </h1>
-            <p className="text-xl text-purple-100 mb-8 leading-relaxed">
-              Diagnosticamos necesidades, diseñamos planes de mejora y acompañamos la
-              implementación para asegurar resultados sostenibles en tu organización.
+            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              Diseñamos programas de formación personalizados en Lengua de Señas, artes, oficios 
+              y técnicas especializadas para potenciar el crecimiento de tu equipo u organización.
             </p>
-            <div className="flex items-center justify-center gap-8 text-purple-100">
+            <div className="flex items-center justify-center gap-8 text-blue-100">
               <div className="text-center">
-                <div className="text-3xl font-bold">500+</div>
-                <div className="text-sm">Empresas asesoradas</div>
+                <div className="text-3xl font-bold">150+</div>
+                <div className="text-sm">Organizaciones</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">98%</div>
+                <div className="text-3xl font-bold">95%</div>
                 <div className="text-sm">Satisfacción cliente</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">5+</div>
+                <div className="text-3xl font-bold">10+</div>
                 <div className="text-sm">Años experiencia</div>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function Asesoria() {
               Nuestros Servicios de Asesoría
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ofrecemos soluciones integrales adaptadas a las necesidades específicas de tu organización
+              Ofrecemos formación especializada y asesoría adaptada a las necesidades de inclusión y fortalecimiento de habilidades
             </p>
           </div>
           
@@ -118,11 +118,11 @@ export default function Asesoria() {
             <div className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  ¿Listo para transformar tu organización?
+                  ¿Listo para potenciar las habilidades de tu equipo?
                 </h2>
                 <p className="text-gray-600 mb-6 text-lg">
-                  Nuestro equipo de expertos está aquí para ayudarte a alcanzar tus objetivos.
-                  Programa una consulta gratuita y descubre cómo podemos impulsar tu éxito.
+                  Nuestro equipo especializado está aquí para diseñar programas de formación 
+                  que se adapten a las necesidades específicas de tu organización.
                 </p>
               </div>
 
@@ -130,13 +130,13 @@ export default function Asesoria() {
                 <h3 className="text-xl font-semibold text-gray-900">Nuestro proceso:</h3>
                 <div className="space-y-4">
                   {[
-                    { step: "1", title: "Diagnóstico inicial", desc: "Evaluamos tu situación actual y necesidades" },
-                    { step: "2", title: "Propuesta personalizada", desc: "Diseñamos un plan específico para tu organización" },
-                    { step: "3", title: "Implementación", desc: "Ejecutamos la estrategia con acompañamiento constante" },
-                    { step: "4", title: "Seguimiento", desc: "Monitoreamos resultados y ajustamos según sea necesario" }
+                    { step: "1", title: "Diagnóstico inicial", desc: "Evaluamos las necesidades de capacitación de tu organización", color: "bg-blue-600" },
+                    { step: "2", title: "Propuesta personalizada", desc: "Diseñamos programas de formación adaptados a tus objetivos", color: "bg-amber-500" },
+                    { step: "3", title: "Implementación", desc: "Ejecutamos los cursos con instructores especializados", color: "bg-red-600" },
+                    { step: "4", title: "Certificación y seguimiento", desc: "Entregamos certificaciones y evaluamos resultados", color: "bg-slate-600" }
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
-                      <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      <div className={`w-8 h-8 ${item.color} rounded-full flex items-center justify-center text-white font-bold text-sm`}>
                         {item.step}
                       </div>
                       <div>
@@ -167,7 +167,7 @@ export default function Asesoria() {
                   <h4 className="text-xl font-bold text-green-600 mb-2">¡Mensaje enviado!</h4>
                   <p className="text-gray-600 mb-6">
                     Gracias por contactarnos. Nuestro equipo se pondrá en contacto contigo 
-                    en las próximas 24 horas.
+                    en las próximas 24 horas para coordinar tu capacitación.
                   </p>
                   <button
                     onClick={() => setSent(false)}
@@ -249,9 +249,9 @@ export default function Asesoria() {
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       <option value="">Selecciona una opción</option>
-                      <option value="estrategica">Consultoría Estratégica</option>
-                      <option value="corporativa">Capacitación Corporativa</option>
-                      <option value="transformacion">Transformación Digital</option>
+                      <option value="lsec">Capacitación en Lengua de Señas</option>
+                      <option value="artes">Talleres de Artes y Oficios</option>
+                      <option value="corporativa">Capacitación Empresarial</option>
                       <option value="otra">Otra (especificar en mensaje)</option>
                     </select>
                   </div>
@@ -267,15 +267,15 @@ export default function Asesoria() {
                       required
                       rows={4}
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                      placeholder="Cuéntanos sobre tus necesidades y objetivos..."
+                      placeholder="Cuéntanos sobre tus necesidades de capacitación y objetivos..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
+                    className="w-full px-6 py-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
-                    🚀 Solicitar consulta gratuita
+                    🚀 Solicitar capacitación gratuita
                   </button>
 
                   <p className="text-center text-sm text-gray-500">

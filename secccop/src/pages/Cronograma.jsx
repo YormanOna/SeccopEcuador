@@ -78,8 +78,8 @@ export default function Cronograma() {
   const getModalidadColor = (modalidad) => {
     const colors = {
       'Presencial': 'bg-blue-100 text-blue-800',
-      'Virtual': 'bg-green-100 text-green-800',
-      'Híbrida': 'bg-purple-100 text-purple-800'
+      'Virtual': 'bg-amber-100 text-amber-800',
+      'Híbrida': 'bg-red-100 text-red-800'
     };
     return colors[modalidad] || 'bg-gray-100 text-gray-800';
   };
@@ -97,27 +97,27 @@ export default function Cronograma() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-indigo-600 to-blue-600 text-white py-16">
+      <section className="bg-blue-600 text-white py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
               📅 Cronograma de Cursos
             </h1>
-            <p className="text-xl text-indigo-100 mb-8">
-              Encuentra el horario perfecto para tu próximo curso. Todas las fechas, modalidades y ubicaciones disponibles.
+            <p className="text-xl text-blue-100 mb-8">
+              Descubre nuestros próximos cursos de Lengua de Señas, artes y oficios. Horarios flexibles y certificación oficial.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div>
                 <div className="text-2xl font-bold">{cronograma.length}</div>
-                <div className="text-sm text-indigo-200">Cursos programados</div>
+                <div className="text-sm text-blue-200">Cursos programados</div>
               </div>
               <div>
                 <div className="text-2xl font-bold">{ciudades.length - 1}</div>
-                <div className="text-sm text-indigo-200">Ciudades</div>
+                <div className="text-sm text-blue-200">Ciudades</div>
               </div>
               <div>
                 <div className="text-2xl font-bold">{modalidades.length - 1}</div>
-                <div className="text-sm text-indigo-200">Modalidades</div>
+                <div className="text-sm text-blue-200">Modalidades</div>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function Cronograma() {
                   placeholder="Buscar curso, instructor o ciudad..."
                   value={filterText}
                   onChange={(e) => setFilterText(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
             </div>
@@ -151,7 +151,7 @@ export default function Cronograma() {
                 <select
                   value={selectedModalidad}
                   onChange={(e) => setSelectedModalidad(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                 >
                   {modalidades.map(modalidad => (
                     <option key={modalidad} value={modalidad}>{modalidad}</option>
@@ -164,7 +164,7 @@ export default function Cronograma() {
                 <select
                   value={selectedCiudad}
                   onChange={(e) => setSelectedCiudad(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
                   {ciudades.map(ciudad => (
                     <option key={ciudad} value={ciudad}>{ciudad}</option>
@@ -177,7 +177,7 @@ export default function Cronograma() {
                 <select
                   value={selectedEstado}
                   onChange={(e) => setSelectedEstado(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500"
                 >
                   {estados.map(estado => (
                     <option key={estado} value={estado}>{estado}</option>
@@ -310,7 +310,7 @@ export default function Cronograma() {
                     <button
                       onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                       disabled={currentPage === 1}
-                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Anterior
                     </button>
@@ -322,8 +322,8 @@ export default function Cronograma() {
                           onClick={() => setCurrentPage(pageNum)}
                           className={`px-3 py-1 text-sm border rounded ${
                             currentPage === pageNum
-                              ? 'bg-indigo-600 text-white border-indigo-600'
-                              : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                              ? 'bg-blue-600 text-white border-blue-600'
+                              : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50 hover:border-blue-300'
                           }`}
                         >
                           {pageNum}
@@ -333,7 +333,7 @@ export default function Cronograma() {
                     <button
                       onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                       disabled={currentPage === totalPages}
-                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-red-50 hover:border-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Siguiente
                     </button>
@@ -353,7 +353,7 @@ export default function Cronograma() {
               <div className="text-3xl mb-4">🏢</div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Modalidad Presencial</h3>
               <p className="text-gray-600 text-sm">
-                Clases en nuestras sedes con acceso directo al instructor y compañeros.
+                Formación práctica en nuestras instalaciones de Quito con material incluido y certificación oficial.
               </p>
             </div>
             
@@ -361,7 +361,7 @@ export default function Cronograma() {
               <div className="text-3xl mb-4">💻</div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Modalidad Virtual</h3>
               <p className="text-gray-600 text-sm">
-                Aprende desde casa con clases en vivo y grabaciones disponibles.
+                Clases online de Lengua de Señas Ecuatoriana con plataforma virtual y manual digital incluido.
               </p>
             </div>
             
@@ -369,7 +369,7 @@ export default function Cronograma() {
               <div className="text-3xl mb-4">🔄</div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Modalidad Híbrida</h3>
               <p className="text-gray-600 text-sm">
-                Combina lo mejor de ambos mundos: presencial y virtual según tu conveniencia.
+                Combinación de clases presenciales y virtuales para mayor flexibilidad y práctica especializada.
               </p>
             </div>
           </div>

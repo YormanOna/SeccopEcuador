@@ -65,7 +65,7 @@ export default function CursoDetalle() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+      <section className="bg-blue-600 text-white">
         <div className="container mx-auto px-4 py-16">
           <Link
             to="/cursos"
@@ -151,10 +151,10 @@ export default function CursoDetalle() {
               </div>
 
               <div className="space-y-3">
-                <button className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl">
+                <button className="w-full px-6 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
                   🎓 Inscribirme ahora
                 </button>
-                <button className="w-full px-6 py-4 rounded-xl border-2 border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors font-semibold">
+                <button className="w-full px-6 py-4 rounded-xl bg-amber-500 text-white hover:bg-amber-600 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
                   💬 Solicitar información
                 </button>
               </div>
@@ -223,7 +223,7 @@ export default function CursoDetalle() {
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-3">
                     <span className="text-blue-500">•</span>
-                    <span>Conocimientos básicos de programación</span>
+                    <span>Ganas de aprender y dedicación para practicar</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-blue-500">•</span>
@@ -243,7 +243,7 @@ export default function CursoDetalle() {
               <div className="bg-white rounded-2xl shadow-sm p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Tu instructor</h3>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-xl">
                     {course.instructor.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>

@@ -4,10 +4,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: "📧", label: "Email", href: "mailto:info@capacitapro.com" },
-    { icon: "📱", label: "WhatsApp", href: "https://wa.me/1234567890" },
-    { icon: "💼", label: "LinkedIn", href: "https://linkedin.com/company/capacitapro" },
-    { icon: "🐦", label: "Twitter", href: "https://twitter.com/capacitapro" }
+    { icon: "📧", label: "Email", href: "mailto:info@seccop.edu.ec" },
+    { icon: "📱", label: "WhatsApp", href: "https://wa.me/593987654321" },
+    { icon: "💼", label: "LinkedIn", href: "https://linkedin.com/company/seccop" },
+    { icon: "�", label: "Facebook", href: "https://facebook.com/seccop" }
   ];
 
   const quickLinks = [
@@ -17,16 +17,16 @@ export default function Footer() {
   ];
 
   const categories = [
-    { label: "Frontend", href: "/cursos?category=Frontend" },
-    { label: "Backend", href: "/cursos?category=Backend" },
-    { label: "DevOps", href: "/cursos?category=DevOps" },
-    { label: "Diseño", href: "/cursos?category=Diseño" }
+    { label: "Comunicación", href: "/cursos?category=Comunicación" },
+    { label: "Arte y Oficios", href: "/cursos?category=Arte y Oficios" },
+    { label: "Técnico Especializado", href: "/cursos?category=Técnico Especializado" },
+    { label: "Lengua de Señas", href: "/cursos?search=Lengua de Señas" }
   ];
 
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 py-12">
+      <div className="bg-blue-600 py-12">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-2xl font-bold mb-4">📧 Mantente actualizado</h3>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
@@ -38,7 +38,7 @@ export default function Footer() {
               placeholder="Tu email"
               className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:outline-none"
             />
-            <button className="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+            <button className="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors font-semibold">
               Suscribirme
             </button>
           </div>
@@ -51,18 +51,18 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                C
+              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                S
               </div>
               <div>
-                <h3 className="text-2xl font-bold">CapacitaPro</h3>
+                <h3 className="text-2xl font-bold">SECCOP</h3>
                 <p className="text-gray-400 text-sm">Centro de Capacitación</p>
               </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Somos el centro de capacitación líder en tecnología, especializado en formar 
-              profesionales de clase mundial. Con más de 5 años de experiencia, hemos capacitado 
-              a miles de estudiantes y asesorado cientos de empresas.
+              Somos un centro de capacitación especializado en Lengua de Señas Ecuatoriana, 
+              artes, oficios y técnicas especializadas. Formamos personas con certificaciones 
+              oficiales y metodologías prácticas desde hace más de 10 años.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, i) => (
@@ -96,7 +96,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="mailto:info@capacitapro.com"
+                  href="mailto:info@seccop.edu.ec"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Contacto

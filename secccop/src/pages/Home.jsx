@@ -5,16 +5,16 @@ import Card from "../components/Card";
 export default function Home() {
   const featuredCourses = courses.filter(course => course.featured).slice(0, 3);
   const stats = [
-    { icon: "👥", number: "5,000+", label: "Estudiantes activos" },
-    { icon: "📚", number: "50+", label: "Cursos disponibles" },
-    { icon: "⭐", number: "4.8", label: "Calificación promedio" },
-    { icon: "🏆", number: "95%", label: "Tasa de satisfacción" }
+    { icon: "👥", number: "1,500+", label: "Estudiantes formados" },
+    { icon: "📚", number: "6+", label: "Cursos especializados" },
+    { icon: "⭐", number: "4.7", label: "Calificación promedio" },
+    { icon: "🏆", number: "92%", label: "Tasa de satisfacción" }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <section className="relative overflow-hidden bg-blue-50">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
         <div className="container mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -24,26 +24,26 @@ export default function Home() {
                   🚀 Plataforma líder en capacitación profesional
                 </div>
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-gray-900">
-                  Impulsa tu carrera con 
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> capacitación profesional</span>
+                  Desarrolla nuevas 
+                  <span className="text-blue-600"> habilidades profesionales</span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  En <strong className="text-blue-600">CapacitaPro</strong> diseñamos programas de formación y
-                  brindamos asesoría especializada para empresas y profesionales que
-                  buscan resultados extraordinarios.
+                  En <strong className="text-blue-600">SECCOP</strong> ofrecemos capacitación especializada en 
+                  Lengua de Señas Ecuatoriana, artes, oficios y técnicas profesionales para 
+                  impulsar tu crecimiento personal y profesional.
                 </p>
               </div>
               
               <div className="flex flex-wrap gap-4">
                 <Link
                   to="/cursos"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   🎓 Explorar cursos
                 </Link>
                 <Link
                   to="/asesoria"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-200 font-semibold"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white hover:bg-amber-600 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   💼 Solicitar asesoría
                 </Link>
@@ -63,17 +63,17 @@ export default function Home() {
             
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <div className="aspect-video bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-600 flex items-center justify-center">
+                <div className="aspect-video bg-red-600 flex items-center justify-center">
                   <div className="text-white text-center space-y-4">
                     <div className="text-6xl">🎯</div>
                     <h3 className="text-2xl font-bold">Aprende con los mejores</h3>
-                    <p className="text-blue-100">Más de 10 años formando profesionales</p>
+                    <p className="text-red-100">Más de 10 años formando profesionales</p>
                   </div>
                 </div>
               </div>
               {/* Decorative elements */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-200 rounded-full blur-xl opacity-70"></div>
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-pink-200 rounded-full blur-xl opacity-70"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-yellow-300 rounded-full blur-xl opacity-60"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-blue-300 rounded-full blur-xl opacity-60"></div>
             </div>
           </div>
         </div>
@@ -84,32 +84,32 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              ¿Por qué elegir CapacitaPro?
+              ¿Por qué elegir SECCOP?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ofrecemos una experiencia de aprendizaje integral con metodologías probadas y resultados medibles
+              Ofrecemos formación especializada con metodologías prácticas, certificaciones oficiales y horarios flexibles
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: "🎯",
-                title: "Formación práctica",
-                description: "Cursos orientados a proyectos reales y habilidades aplicables en el mercado laboral actual.",
+                icon: "🤟",
+                title: "Lengua de Señas Ecuatoriana",
+                description: "Cursos certificados de LSEC con aval del Ministerio de Educación, modalidad presencial y online.",
                 color: "blue"
               },
               {
-                icon: "👨‍🏫",
-                title: "Mentoría experta",
-                description: "Acompañamiento personalizado por profesionales con años de experiencia en la industria.",
-                color: "purple"
+                icon: "�",
+                title: "Artes y Oficios",
+                description: "Formación práctica en decoración con globos, porcelana fría, fomix y técnicas artísticas especializadas.",
+                color: "red"
               },
               {
-                icon: "📊",
-                title: "Resultados medibles",
-                description: "Seguimiento de progreso con KPIs claros y planes de mejora continuos para tu desarrollo.",
-                color: "green"
+                icon: "�",
+                title: "Técnicas Especializadas",
+                description: "Cursos técnicos de fabricación de moldes, emprendimiento y habilidades aplicables a negocios.",
+                color: "yellow"
               }
             ].map((feature, i) => (
               <div key={i} className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
@@ -132,7 +132,7 @@ export default function Home() {
               Cursos destacados
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Descubre nuestros programas más populares y comienza tu transformación profesional hoy mismo
+              Descubre nuestros programas especializados y comienza tu transformación personal y profesional
             </p>
           </div>
           
@@ -147,7 +147,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               to="/cursos"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-red-600 text-white hover:bg-red-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Ver todos los cursos
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,25 +159,25 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-blue-600">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              ¿Listo para transformar tu carrera profesional?
+              ¿Listo para desarrollar nuevas habilidades?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Únete a miles de profesionales que ya han impulsado su carrera con nuestros programas de capacitación
+              Únete a cientos de personas que han desarrollado nuevas competencias con nuestros cursos especializados
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/cursos"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-600 hover:bg-gray-100 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white hover:bg-amber-600 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
               >
                 🎓 Comenzar ahora
               </Link>
               <Link
                 to="/asesoria"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-200 font-semibold"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-red-600 text-white hover:bg-red-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
               >
                 💬 Hablar con un asesor
               </Link>

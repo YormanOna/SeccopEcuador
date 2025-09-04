@@ -9,12 +9,17 @@ export default function Card({ course }) {
     duration,
     level,
     price,
+    originalPrice,
+    discount,
     rating,
     students,
     category,
     icon,
     featured,
-    instructor
+    instructor,
+    modality,
+    schedule,
+    reservation
   } = course;
 
   const { isFavorite, toggleFavorite } = useFavorites();
@@ -34,16 +39,22 @@ export default function Card({ course }) {
 
   const getCategoryColor = (category) => {
     switch (category) {
+      case 'Comunicación':
+        return 'bg-blue-100 text-blue-800';
+      case 'Arte y Oficios':
+        return 'bg-amber-100 text-amber-800';
+      case 'Técnico Especializado':
+        return 'bg-red-100 text-red-800';
       case 'Frontend':
         return 'bg-blue-100 text-blue-800';
       case 'Backend':
-        return 'bg-purple-100 text-purple-800';
+        return 'bg-red-100 text-red-800';
       case 'DevOps':
-        return 'bg-orange-100 text-orange-800';
+        return 'bg-amber-100 text-amber-800';
       case 'Diseño':
-        return 'bg-pink-100 text-pink-800';
+        return 'bg-orange-100 text-orange-800';
       case 'Seguridad':
-        return 'bg-gray-100 text-gray-800';
+        return 'bg-slate-100 text-slate-800';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -53,7 +64,7 @@ export default function Card({ course }) {
     <div className={`relative rounded-2xl border bg-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${featured ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`}>
       {featured && (
         <div className="absolute -top-3 left-4">
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+          <span className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
             ⭐ Destacado
           </span>
         </div>
@@ -81,7 +92,17 @@ export default function Card({ course }) {
           </div>
         </div>
         <div className="text-right">
-          <div className="text-2xl font-bold text-blue-600">{price}</div>
+          <div className="flex flex-col items-end">
+            {originalPrice && discount && (
+              <div className="text-sm text-gray-500 line-through">{originalPrice}</div>
+            )}
+            <div className="text-2xl font-bold text-blue-600">{price}</div>
+            {discount && (
+              <div className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full font-semibold">
+                -{discount} OFF
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
@@ -94,6 +115,11 @@ export default function Card({ course }) {
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(level)}`}>
           {level}
         </span>
+        {modality && (
+          <span className="px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+            {modality}
+          </span>
+        )}
       </div>
 
       <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
@@ -111,9 +137,30 @@ export default function Card({ course }) {
         </div>
       </div>
 
+      {/* Schedule and Reservation Info */}
+      {schedule && schedule.length > 0 && (
+        <div className="mb-4 p-3 bg-blue-50 rounded-lg">
+          <h4 className="text-sm font-semibold text-blue-800 mb-2">📅 Horarios disponibles:</h4>
+          <div className="text-xs text-blue-700">
+            {schedule[0]}
+            {schedule.length > 1 && (
+              <div className="text-blue-600 font-medium mt-1">
+                +{schedule.length - 1} horario{schedule.length > 2 ? 's' : ''} más
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {reservation && (
+        <div className="mb-4 p-2 bg-amber-50 rounded-lg border border-amber-200">
+          <p className="text-xs text-amber-800 font-medium">💰 {reservation}</p>
+        </div>
+      )}
+
       <Link
         to={`/cursos/${id}`}
-        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium"
+        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-medium"
       >
         Ver detalles del curso
         <svg
