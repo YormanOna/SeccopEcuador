@@ -4,10 +4,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { icon: "📧", label: "Email", href: "mailto:info@seccop.edu.ec" },
-    { icon: "📱", label: "WhatsApp", href: "https://wa.me/593987654321" },
-    { icon: "💼", label: "LinkedIn", href: "https://linkedin.com/company/seccop" },
-    { icon: "�", label: "Facebook", href: "https://facebook.com/seccop" }
+    { icon: "fas fa-envelope", label: "Email", href: "mailto:seccop.ec@gmail.com" },
+    { icon: "fab fa-whatsapp", label: "WhatsApp", href: "https://wa.me/593996727387" },
+    { icon: "fab fa-facebook", label: "Facebook", href: "https://facebook.com/seccop.ec" },
+    { icon: "fab fa-instagram", label: "Instagram", href: "https://instagram.com/seccop.ec" }
   ];
 
   const quickLinks = [
@@ -25,25 +25,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      {/* Newsletter Section */}
-      <div className="bg-blue-600 py-12">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold mb-4">📧 Mantente actualizado</h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Recibe las últimas noticias sobre nuevos cursos, tendencias tecnológicas y ofertas especiales
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
-            <input
-              type="email"
-              placeholder="Tu email"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:outline-none"
-            />
-            <button className="px-6 py-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors font-semibold">
-              Suscribirme
-            </button>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
@@ -51,18 +33,19 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">
-                S
-              </div>
+              <img 
+                src="/images/logo_seccop.webp" 
+                alt="SECCOP Logo" 
+                className="h-12 w-auto"
+              />
               <div>
                 <h3 className="text-2xl font-bold">SECCOP</h3>
                 <p className="text-gray-400 text-sm">Centro de Capacitación</p>
               </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Somos un centro de capacitación especializado en Lengua de Señas Ecuatoriana, 
-              artes, oficios y técnicas especializadas. Formamos personas con certificaciones 
-              oficiales y metodologías prácticas desde hace más de 10 años.
+              Centro de Capacitación especializado en Lengua de Señas Ecuatoriana, 
+              artes y oficios. Ofrecemos cursos presenciales y online.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social, i) => (
@@ -74,7 +57,7 @@ export default function Footer() {
                   className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors"
                   aria-label={social.label}
                 >
-                  <span className="text-lg">{social.icon}</span>
+                  <i className={`${social.icon} text-lg`}></i>
                 </a>
               ))}
             </div>
@@ -96,7 +79,7 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="mailto:info@seccop.edu.ec"
+                  href="mailto:seccop.ec@gmail.com"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Contacto
@@ -143,24 +126,24 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="grid md:grid-cols-3 gap-6 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-3">
-              <span className="text-2xl">📍</span>
+              <i className="fas fa-map-marker-alt text-2xl text-blue-400"></i>
               <div>
                 <h5 className="font-semibold">Ubicación</h5>
-                <p className="text-gray-400 text-sm">Ciudad Principal, País</p>
+                <p className="text-gray-400 text-sm">Av. Gran Colombia y José Martí E4-10. Alameda</p>
               </div>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-3">
-              <span className="text-2xl">📞</span>
+              <i className="fas fa-phone text-2xl text-amber-400"></i>
               <div>
                 <h5 className="font-semibold">Teléfono</h5>
-                <p className="text-gray-400 text-sm">+1 (234) 567-8900</p>
+                <p className="text-gray-400 text-sm">099 672 7387</p>
               </div>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-3">
-              <span className="text-2xl">✉️</span>
+              <i className="fas fa-envelope text-2xl text-red-400"></i>
               <div>
                 <h5 className="font-semibold">Email</h5>
-                <p className="text-gray-400 text-sm">info@capacitapro.com</p>
+                <p className="text-gray-400 text-sm">seccop.ec@gmail.com</p>
               </div>
             </div>
           </div>
@@ -172,7 +155,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm">
-              © {currentYear} CapacitaPro. Todos los derechos reservados.
+              © {currentYear} SECCOP. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">

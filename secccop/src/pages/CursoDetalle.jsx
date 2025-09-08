@@ -10,7 +10,9 @@ export default function CursoDetalle() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-6">
-          <div className="text-6xl">😔</div>
+          <div className="text-6xl text-gray-400">
+            <i className="fas fa-search"></i>
+          </div>
           <h2 className="text-2xl font-bold text-gray-800">Curso no encontrado</h2>
           <p className="text-gray-600">El curso que buscas no existe o ha sido removido.</p>
           <div className="flex gap-4 justify-center">
@@ -47,6 +49,12 @@ export default function CursoDetalle() {
 
   const getCategoryColor = (category) => {
     switch (category) {
+      case 'Comunicación':
+        return 'bg-blue-100 text-blue-800';
+      case 'Arte y Oficios':
+        return 'bg-amber-100 text-amber-800';
+      case 'Técnico Especializado':
+        return 'bg-red-100 text-red-800';
       case 'Frontend':
         return 'bg-blue-100 text-blue-800';
       case 'Backend':
@@ -80,7 +88,9 @@ export default function CursoDetalle() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                <span className="text-4xl">{course.icon}</span>
+                <span className="text-4xl text-blue-200">
+                  <i className={course.icon}></i>
+                </span>
                 <div className="flex flex-wrap gap-2">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(course.category)}`}>
                     {course.category}
@@ -90,7 +100,7 @@ export default function CursoDetalle() {
                   </span>
                   {course.featured && (
                     <span className="px-3 py-1 rounded-full text-sm font-medium bg-yellow-400 text-yellow-900">
-                      ⭐ Destacado
+                      <i className="fas fa-star"></i> Destacado
                     </span>
                   )}
                 </div>
@@ -106,62 +116,40 @@ export default function CursoDetalle() {
 
               <div className="flex items-center gap-6 text-blue-100">
                 <div className="flex items-center gap-2">
-                  <span className="text-yellow-400">⭐</span>
+                  <i className="fas fa-star text-yellow-400"></i>
                   <span className="font-semibold">{course.rating}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span>👥</span>
+                  <i className="fas fa-users"></i>
                   <span>{course.students.toLocaleString()} estudiantes</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span>⏰</span>
+                  <i className="fas fa-clock"></i>
                   <span>{course.duration}</span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 text-blue-100">
-                <span>👨‍🏫</span>
+                <i className="fas fa-chalkboard-teacher"></i>
                 <span>Instructor: <span className="font-semibold">{course.instructor}</span></span>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <div className="text-center mb-6">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{course.price}</div>
-                <p className="text-gray-600">Acceso completo al curso</p>
+            {/* Hero Course Image - Clean Design */}
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-80 lg:h-96 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
               </div>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3 text-gray-700">
-                  <span className="text-green-500">✅</span>
-                  <span>Acceso de por vida</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <span className="text-green-500">✅</span>
-                  <span>Certificado al completar</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <span className="text-green-500">✅</span>
-                  <span>Soporte del instructor</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <span className="text-green-500">✅</span>
-                  <span>Proyectos prácticos</span>
-                </div>
+              
+              {/* Floating icon badge */}
+              <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-lg">
+                <i className={`${course.icon} text-blue-600 text-2xl`}></i>
               </div>
-
-              <div className="space-y-3">
-                <button className="w-full px-6 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
-                  🎓 Inscribirme ahora
-                </button>
-                <button className="w-full px-6 py-4 rounded-xl bg-amber-500 text-white hover:bg-amber-600 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105">
-                  💬 Solicitar información
-                </button>
-              </div>
-
-              <p className="text-center text-sm text-gray-500 mt-4">
-                30 días de garantía de devolución
-              </p>
             </div>
           </div>
         </div>
@@ -175,23 +163,74 @@ export default function CursoDetalle() {
               {/* What you'll learn */}
               <div className="bg-white rounded-2xl shadow-sm p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <span className="text-2xl">🎯</span>
+                  <i className="fas fa-bullseye text-blue-600"></i>
                   Lo que aprenderás
                 </h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {course.topics.map((topic, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <span className="text-green-500 mt-1">✅</span>
+                      <i className="fas fa-check text-green-500 mt-1"></i>
                       <span className="text-gray-700">{topic}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
+              {/* Gallery Section */}
+              {course.gallery && course.gallery.length > 0 && (
+                <div className="bg-white rounded-2xl shadow-sm p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i className="fas fa-images text-blue-600"></i>
+                    Galería del curso
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {course.gallery.map((image, i) => (
+                      <div 
+                        key={i} 
+                        className="relative group cursor-pointer overflow-hidden rounded-lg aspect-square bg-gray-100 hover:shadow-lg transition-all duration-300"
+                        onClick={() => {
+                          // Simple lightbox effect
+                          const modal = document.createElement('div');
+                          modal.className = 'fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50';
+                          modal.innerHTML = `
+                            <div class="relative max-w-4xl max-h-full p-4">
+                              <button class="absolute top-2 right-2 text-white text-2xl hover:text-gray-300 z-10">
+                                <i class="fas fa-times"></i>
+                              </button>
+                              <img src="${image}" alt="Galería ${i + 1}" class="max-w-full max-h-full object-contain rounded-lg" />
+                            </div>
+                          `;
+                          document.body.appendChild(modal);
+                          modal.onclick = (e) => {
+                            if (e.target === modal || e.target.closest('button')) {
+                              document.body.removeChild(modal);
+                            }
+                          };
+                        }}
+                      >
+                        <img
+                          src={image}
+                          alt={`Galería ${i + 1}`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                          <i className="fas fa-search-plus text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm text-gray-500 mt-4 text-center">
+                    <i className="fas fa-info-circle mr-1"></i>
+                    Haz clic en cualquier imagen para verla en tamaño completo
+                  </p>
+                </div>
+              )}
+
               {/* Course content preview */}
               <div className="bg-white rounded-2xl shadow-sm p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <span className="text-2xl">📚</span>
+                  <i className="fas fa-book text-blue-600"></i>
                   Contenido del curso
                 </h2>
                 <div className="space-y-4">
@@ -217,20 +256,20 @@ export default function CursoDetalle() {
               {/* Requirements */}
               <div className="bg-white rounded-2xl shadow-sm p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                  <span className="text-2xl">📋</span>
+                  <i className="fas fa-clipboard-list text-blue-600"></i>
                   Requisitos
                 </h2>
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500">•</span>
+                    <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
                     <span>Ganas de aprender y dedicación para practicar</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500">•</span>
+                    <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
                     <span>Computadora con conexión a internet</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-blue-500">•</span>
+                    <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
                     <span>Ganas de aprender y tiempo para practicar</span>
                   </li>
                 </ul>
@@ -271,7 +310,9 @@ export default function CursoDetalle() {
                         className="block p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="text-2xl">{relatedCourse.icon}</span>
+                          <span className="text-2xl text-blue-600">
+                            <i className={relatedCourse.icon}></i>
+                          </span>
                           <div>
                             <h4 className="font-medium text-gray-900 text-sm">{relatedCourse.title}</h4>
                             <p className="text-xs text-gray-600">{relatedCourse.price}</p>

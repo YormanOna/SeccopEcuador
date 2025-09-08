@@ -13,9 +13,11 @@ export default function Navbar() {
       <nav className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
-              S
-            </div>
+            <img 
+              src="/images/logo_seccop.webp" 
+              alt="SECCOP Logo" 
+              className="h-10 w-auto group-hover:scale-105 transition-transform"
+            />
             <div className="flex flex-col">
               <span className="font-bold text-xl text-gray-800">SECCOP</span>
               <span className="text-xs text-gray-500 -mt-1">Centro de Capacitación</span>
@@ -61,6 +63,14 @@ export default function Navbar() {
               Cursos
             </NavLink>
             <NavLink
+              to="/galeria"
+              className={({ isActive }) =>
+                `${base} ${isActive ? active : inactive}`
+              }
+            >
+              Galería
+            </NavLink>
+            <NavLink
               to="/cronograma"
               className={({ isActive }) =>
                 `${base} ${isActive ? active : inactive}`
@@ -98,6 +108,15 @@ export default function Navbar() {
               }
             >
               Cursos
+            </NavLink>
+            <NavLink
+              onClick={() => setOpen(false)}
+              to="/galeria"
+              className={({ isActive }) =>
+                `${base} ${isActive ? active : inactive}`
+              }
+            >
+              Galería
             </NavLink>
             <NavLink
               onClick={() => setOpen(false)}

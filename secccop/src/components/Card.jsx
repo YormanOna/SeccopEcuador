@@ -65,7 +65,7 @@ export default function Card({ course }) {
       {featured && (
         <div className="absolute -top-3 left-4">
           <span className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
-            ⭐ Destacado
+            <i className="fas fa-star"></i> Destacado
           </span>
         </div>
       )}
@@ -77,17 +77,20 @@ export default function Card({ course }) {
         aria-label={isFavorite(id) ? "Quitar de favoritos" : "Añadir a favoritos"}
       >
         <span className={`text-lg ${isFavorite(id) ? 'text-red-500' : 'text-gray-400'}`}>
-          {isFavorite(id) ? '❤️' : '🤍'}
+          <i className={`${isFavorite(id) ? 'fas fa-heart' : 'far fa-heart'}`}></i>
         </span>
       </button>
       
       <div className="flex items-start justify-between mb-4 pr-8">
         <div className="flex items-center gap-3">
-          <div className="text-3xl">{icon}</div>
+          <div className="text-3xl text-blue-600">
+            <i className={icon}></i>
+          </div>
           <div>
             <h3 className="text-xl font-bold text-gray-800 mb-1">{title}</h3>
             <div className="flex items-center gap-2 text-sm text-gray-600">
-              <span>👨‍🏫 {instructor}</span>
+              <i className="fas fa-chalkboard-teacher text-gray-500"></i>
+              <span>{instructor}</span>
             </div>
           </div>
         </div>
@@ -125,14 +128,14 @@ export default function Card({ course }) {
       <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1">
-            ⏰ {duration}
+            <i className="fas fa-clock text-gray-500"></i> {duration}
           </span>
           <span className="flex items-center gap-1">
-            👥 {students.toLocaleString()}
+            <i className="fas fa-users text-gray-500"></i> {students.toLocaleString()}
           </span>
         </div>
         <div className="flex items-center gap-1">
-          <span className="text-yellow-500">⭐</span>
+          <i className="fas fa-star text-yellow-500"></i>
           <span className="font-medium">{rating}</span>
         </div>
       </div>
@@ -140,7 +143,9 @@ export default function Card({ course }) {
       {/* Schedule and Reservation Info */}
       {schedule && schedule.length > 0 && (
         <div className="mb-4 p-3 bg-blue-50 rounded-lg">
-          <h4 className="text-sm font-semibold text-blue-800 mb-2">📅 Horarios disponibles:</h4>
+          <h4 className="text-sm font-semibold text-blue-800 mb-2">
+            <i className="fas fa-calendar-alt"></i> Horarios disponibles:
+          </h4>
           <div className="text-xs text-blue-700">
             {schedule[0]}
             {schedule.length > 1 && (
@@ -154,7 +159,9 @@ export default function Card({ course }) {
 
       {reservation && (
         <div className="mb-4 p-2 bg-amber-50 rounded-lg border border-amber-200">
-          <p className="text-xs text-amber-800 font-medium">💰 {reservation}</p>
+          <p className="text-xs text-amber-800 font-medium">
+            <i className="fas fa-dollar-sign"></i> {reservation}
+          </p>
         </div>
       )}
 
