@@ -41,7 +41,7 @@ export default function Card({ course }) {
     switch (category) {
       case 'Comunicación':
         return 'bg-blue-100 text-blue-800';
-      case 'Arte y Oficios':
+      case 'Emprendimiento':
         return 'bg-amber-100 text-amber-800';
       case 'Técnico Especializado':
         return 'bg-red-100 text-red-800';
@@ -61,7 +61,7 @@ export default function Card({ course }) {
   };
 
   return (
-    <div className={`relative rounded-2xl border bg-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${featured ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`}>
+    <div className={`relative rounded-2xl border bg-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col ${featured ? 'ring-2 ring-blue-500 ring-opacity-50' : ''}`}>
       {featured && (
         <div className="absolute -top-3 left-4">
           <span className="bg-red-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
@@ -82,34 +82,24 @@ export default function Card({ course }) {
       </button>
       
       <div className="flex items-start justify-between mb-4 pr-8">
-        <div className="flex items-center gap-3">
-          <div className="text-3xl text-blue-600">
+        <div className="flex items-center gap-3 flex-1 min-w-0">
+          <div className="text-3xl text-blue-600 flex-shrink-0">
             <i className={icon}></i>
           </div>
-          <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-1">{title}</h3>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-lg font-bold text-gray-800 mb-1 leading-tight">{title}</h3>
             <div className="flex items-center gap-2 text-sm text-gray-600">
               <i className="fas fa-chalkboard-teacher text-gray-500"></i>
-              <span>{instructor}</span>
+              <span className="truncate">{instructor}</span>
             </div>
           </div>
         </div>
-        <div className="text-right">
-          <div className="flex flex-col items-end">
-            {originalPrice && discount && (
-              <div className="text-sm text-gray-500 line-through">{originalPrice}</div>
-            )}
-            <div className="text-2xl font-bold text-blue-600">{price}</div>
-            {discount && (
-              <div className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full font-semibold">
-                -{discount} OFF
-              </div>
-            )}
-          </div>
+        <div className="text-right flex-shrink-0 ml-3">
+          <div className="text-xl font-bold text-blue-600">{price}</div>
         </div>
       </div>
 
-      <p className="text-gray-600 mb-4 line-clamp-2">{shortDescription}</p>
+      <p className="text-gray-600 mb-4 flex-grow text-sm leading-relaxed">{shortDescription}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(category)}`}>
@@ -165,26 +155,28 @@ export default function Card({ course }) {
         </div>
       )}
 
-      <Link
-        to={`/cursos/${id}`}
-        className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-medium"
-      >
-        Ver detalles del curso
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-4 h-4"
+      <div className="mt-auto">
+        <Link
+          to={`/cursos/${id}`}
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-medium"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-          />
-        </svg>
-      </Link>
+          Ver detalles del curso
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        </Link>
+      </div>
     </div>
   );
 }

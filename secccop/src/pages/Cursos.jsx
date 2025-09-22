@@ -1,22 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Card from "../components/Card";
 import courses from "../data/courses";
 
 export default function Cursos() {
   const [selectedCategory, setSelectedCategory] = useState("Todos");
-  const [selectedLevel, setSelectedLevel] = useState("Todos");
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchParams] = useSearchParams();
 
   const categories = ["Todos", ...new Set(courses.map(course => course.category))];
-  const levels = ["Todos", ...new Set(courses.map(course => course.level))];
+
+  // Manejar parámetros URL al cargar la página
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    const searchParam = searchParams.get('search');
+    
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam);
+    }
+    
+    if (searchParam) {
+      setSearchTerm(searchParam);
+    }
+  }, [searchParams, categories]);
 
   const filteredCourses = courses.filter(course => {
     const matchesCategory = selectedCategory === "Todos" || course.category === selectedCategory;
-    const matchesLevel = selectedLevel === "Todos" || course.level === selectedLevel;
     const matchesSearch = course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          course.shortDescription.toLowerCase().includes(searchTerm.toLowerCase());
     
-    return matchesCategory && matchesLevel && matchesSearch;
+    return matchesCategory && matchesSearch;
   });
 
   return (
@@ -29,7 +42,7 @@ export default function Cursos() {
               Nuestros Cursos Especializados
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Formación en Lengua de Señas Ecuatoriana, artes, oficios y técnicas especializadas
+              Formación en Lengua de Señas Ecuatoriana, emprendimiento y técnicas especializadas
             </p>
             <div className="flex items-center justify-center text-blue-100">
               <span className="flex items-center gap-2">
@@ -53,7 +66,7 @@ export default function Cursos() {
                 </svg>
                 <input
                   type="text"
-                  placeholder="Buscar por curso, modalidad o nivel..."
+                  placeholder="Buscar por curso o modalidad..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -75,24 +88,6 @@ export default function Cursos() {
                   }`}
                 >
                   {category}
-                </button>
-              ))}
-            </div>
-
-            {/* Level Filter */}
-            <div className="flex flex-wrap gap-2">
-              <span className="text-sm font-medium text-gray-700 self-center">Nivel:</span>
-              {levels.map(level => (
-                <button
-                  key={level}
-                  onClick={() => setSelectedLevel(level)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                    selectedLevel === level
-                      ? 'bg-red-600 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {level}
                 </button>
               ))}
             </div>

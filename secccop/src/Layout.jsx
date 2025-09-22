@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { FloatingWhatsApp } from '@carlos8a/react-whatsapp-floating-button';
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function Layout() {
   const location = useLocation();
@@ -39,6 +40,7 @@ export default function Layout() {
         notificationDelay={10}
         notificationLoop={2}
       />
+      <ScrollToTop />
     </div>
   );
 }

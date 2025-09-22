@@ -150,7 +150,7 @@ export default function Galeria() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-white shadow-sm sticky top-0 z-30 backdrop-blur-sm bg-white/90">
+      <section className="py-12 bg-white shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-4">
             <button

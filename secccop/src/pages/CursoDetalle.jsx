@@ -77,12 +77,12 @@ export default function CursoDetalle() {
         <div className="container mx-auto px-4 py-16">
           <Link
             to="/cursos"
-            className="inline-flex items-center gap-2 text-blue-100 hover:text-white mb-8 transition-colors"
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg text-white font-semibold mb-8 transition-all duration-300 hover:scale-105"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Volver a cursos
+            ← Volver a Cursos
           </Link>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -233,21 +233,37 @@ export default function CursoDetalle() {
                   <i className="fas fa-book text-blue-600"></i>
                   Contenido del curso
                 </h2>
-                <div className="space-y-4">
-                  {[
-                    { title: "Introducción y fundamentos", lessons: 5, duration: "1.5h" },
-                    { title: "Conceptos intermedios", lessons: 8, duration: "3h" },
-                    { title: "Proyectos prácticos", lessons: 12, duration: "5h" },
-                    { title: "Casos de estudio avanzados", lessons: 6, duration: "2.5h" },
-                    { title: "Mejores prácticas y optimización", lessons: 4, duration: "1.5h" }
-                  ].map((module, i) => (
-                    <div key={i} className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-gray-900">{module.title}</h3>
-                        <div className="text-sm text-gray-500">
+                <div className="space-y-6">
+                  {(course.courseContent || [
+                    { title: "Módulo 1", lessons: 5, duration: "1.5h", topics: ["Contenido por definir"] },
+                    { title: "Módulo 2", lessons: 8, duration: "3h", topics: ["Contenido por definir"] },
+                    { title: "Módulo 3", lessons: 6, duration: "2h", topics: ["Contenido por definir"] }
+                  ]).map((module, i) => (
+                    <div key={i} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-all duration-200">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                          <span className="bg-blue-100 text-blue-600 text-sm font-bold px-2.5 py-1 rounded-full">
+                            {i + 1}
+                          </span>
+                          {module.title}
+                        </h3>
+                        <div className="text-sm text-gray-500 bg-gray-50 px-3 py-1 rounded-full">
                           {module.lessons} lecciones • {module.duration}
                         </div>
                       </div>
+                      {module.topics && (
+                        <div className="space-y-3">
+                          <p className="text-sm font-medium text-gray-700">Temas a desarrollar:</p>
+                          <div className="grid md:grid-cols-2 gap-2">
+                            {module.topics.map((topic, topicIndex) => (
+                              <div key={topicIndex} className="flex items-start gap-2">
+                                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                                <span className="text-sm text-gray-600 leading-relaxed">{topic}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>

@@ -34,7 +34,7 @@ export default function Footer() {
 
   const categories = [
     { label: "Comunicación", href: "/cursos?category=Comunicación" },
-    { label: "Arte y Oficios", href: "/cursos?category=Arte y Oficios" },
+    { label: "Emprendimiento", href: "/cursos?category=Emprendimiento" },
     {
       label: "Técnico Especializado",
       href: "/cursos?category=Técnico Especializado",
@@ -120,12 +120,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {categories.map((category, i) => (
                 <li key={i}>
-                  <a
-                    href={category.href}
+                  <Link
+                    to={category.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     {category.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
