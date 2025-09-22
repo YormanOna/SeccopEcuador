@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import courses from "../data/courses";
 import Card from "../components/Card";
+import ImageCarousel from "../components/ImageCarousel";
 
 export default function Home() {
   const featuredCourses = courses.filter(course => course.featured).slice(0, 3);
+  
+  // Estadísticas de SECCOP
   const stats = [
     { icon: "fas fa-users", number: "1,500+", label: "Estudiantes formados" },
     { icon: "fas fa-book", number: "6+", label: "Cursos especializados" },
@@ -11,13 +14,37 @@ export default function Home() {
     { icon: "fas fa-trophy", number: "92%", label: "Tasa de satisfacción" }
   ];
 
+  // Imágenes para el carrusel del hero
+  const heroImages = [
+    {
+      src: "/images/Seccop.webp",
+      alt: "SECCOP - Centro de Capacitación Profesional"
+    },
+    {
+      src: "/images/Lengua de señas/LenguaDeSeñas.webp",
+      alt: "Curso de Lengua de Señas Ecuatoriana - SECCOP"
+    },
+    {
+      src: "/images/Fomix/Fomix.webp",
+      alt: "Taller de Arte en Fomix - Emprendimiento Creativo"
+    },
+    {
+      src: "/images/Globos/globos.webp",
+      alt: "Decoración de Eventos con Globos - Curso Práctico"
+    },
+    {
+      src: "/images/Porcelana/Porcelana.webp",
+      alt: "Pintura en Porcelana - Arte y Tradición"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden ">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto px-4 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center">
             <div className="space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
@@ -51,7 +78,7 @@ export default function Home() {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-0">
                 {stats.map((stat, i) => (
                   <div key={i} className="text-center">
                     <div className="text-2xl mb-1 text-blue-600">
@@ -64,12 +91,12 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden ">
-                <img 
-                  src="/images/Seccop.webp" 
-                  alt="SECCOP - Centro de Capacitación" 
-                  className="w-full h-full object-cover"
+            <div className="relative lg:mt-[-2rem]">
+              <div className="relative h-96 lg:h-[500px]">
+                <ImageCarousel 
+                  images={heroImages} 
+                  interval={5000}
+                  className="h-full shadow-2xl"
                 />
               </div>
             </div>
