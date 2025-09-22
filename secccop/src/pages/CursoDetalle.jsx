@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import courses from "../data/courses";
+import CourseHeaderCarousel from "../components/CourseHeaderCarousel";
 
 export default function CursoDetalle() {
   const { id } = useParams();
@@ -82,7 +83,7 @@ export default function CursoDetalle() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            ← Volver a Cursos
+            Volver a Cursos
           </Link>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -135,22 +136,8 @@ export default function CursoDetalle() {
               </div>
             </div>
 
-            {/* Hero Course Image - Clean Design */}
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-80 lg:h-96 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-              </div>
-              
-              {/* Floating icon badge */}
-              <div className="absolute -top-4 -right-4 bg-white rounded-full p-4 shadow-lg">
-                <i className={`${course.icon} text-blue-600 text-2xl`}></i>
-              </div>
-            </div>
+            {/* Hero Course Carousel */}
+            <CourseHeaderCarousel course={course} />
           </div>
         </div>
       </section>
