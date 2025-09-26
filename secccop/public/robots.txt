@@ -1,0 +1,29 @@
+# robots.txt para SECCOP Ecuador - Centro de Capacitación
+# https://seccop-ecuador.vercel.app
+
+User-agent: *
+Allow: /
+
+# Páginas principales
+Allow: /cursos
+Allow: /galeria
+Allow: /cronograma
+Allow: /asesoria
+
+# Recursos permitidos
+Allow: /images/
+Allow: /assets/
+
+# Archivos importantes para SEO
+Sitemap: https://seccop-ecuador.vercel.app/sitemap.xml
+
+# Crawl-delay para ser respetuosos con los servidores
+Crawl-delay: 1
+
+# Comentarios para motores de búsqueda
+# Este sitio ofrece:
+# - Cursos de Lengua de Señas Ecuatoriana (LSEC)
+# - Capacitación en emprendimiento y artes
+# - Cursos técnicos especializados
+# - Modalidades presencial y virtual
+# - Certificación oficial del Ministerio de Educación

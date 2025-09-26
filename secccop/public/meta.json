@@ -1,0 +1,59 @@
+{
+  "site": {
+    "name": "SECCOP Ecuador",
+    "description": "Centro de Capacitación especializado en Lengua de Señas Ecuatoriana, emprendimiento y cursos técnicos. Certificación oficial del Ministerio de Educación.",
+    "url": "https://seccop-ecuador.vercel.app",
+    "type": "EducationalOrganization",
+    "location": {
+      "address": "Av. Gran Colombia y José Martí E4-10, Alameda, Quito, Ecuador",
+      "phone": "+593996727387",
+      "email": "seccop.ec@gmail.com"
+    }
+  },
+  "keywords": [
+    "lengua de señas ecuatoriana",
+    "LSEC",
+    "cursos online Ecuador",
+    "capacitación profesional",
+    "emprendimiento Ecuador",
+    "Excel avanzado",
+    "certificación ministerio educación",
+    "cursos presenciales Quito",
+    "lengua de señas online",
+    "artes y oficios Ecuador",
+    "globoflexia curso",
+    "porcelana fría",
+    "moldes silicón",
+    "fomix arte",
+    "inclusión social",
+    "comunicación inclusiva",
+    "interpretación LSEC",
+    "análisis datos Excel",
+    "dashboard Excel",
+    "macros VBA",
+    "SECCOP",
+    "centro capacitación Ecuador"
+  ],
+  "courses": {
+    "main_categories": [
+      "Educación",
+      "Emprendimiento", 
+      "Técnico Especializado"
+    ],
+    "featured_courses": [
+      "Lengua de Señas Ecuatoriana",
+      "Excel Avanzado - Análisis de Datos",
+      "Decoración de Eventos con Globos"
+    ],
+    "modalities": [
+      "Presencial",
+      "Virtual",
+      "Híbrida"
+    ]
+  },
+  "certifications": [
+    "Ministerio de Educación Ecuador",
+    "Corporación de Apoyo Investigación Educativa Ecuatoriana",
+    "SECCOP Certificado Técnico"
+  ]
+}

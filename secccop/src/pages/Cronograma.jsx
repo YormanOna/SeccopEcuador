@@ -6,6 +6,8 @@ export default function Cronograma() {
   const [selectedModalidad, setSelectedModalidad] = useState('Todas');
   const [selectedCiudad, setSelectedCiudad] = useState('Todas');
   const [selectedEstado, setSelectedEstado] = useState('Todos');
+  const [fechaDesde, setFechaDesde] = useState('');
+  const [fechaHasta, setFechaHasta] = useState('');
   const [sortField, setSortField] = useState('curso');
   const [sortDirection, setSortDirection] = useState('asc');
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +28,21 @@ export default function Cronograma() {
       const matchesCiudad = selectedCiudad === 'Todas' || item.ciudad === selectedCiudad;
       const matchesEstado = selectedEstado === 'Todos' || item.estado === selectedEstado;
       
-      return matchesText && matchesModalidad && matchesCiudad && matchesEstado;
+      // Filtro por rango de fechas
+      let matchesFecha = true;
+      if (fechaDesde || fechaHasta) {
+        const itemDate = new Date(item.fechaInicio);
+        if (fechaDesde) {
+          const desde = new Date(fechaDesde);
+          matchesFecha = matchesFecha && itemDate >= desde;
+        }
+        if (fechaHasta) {
+          const hasta = new Date(fechaHasta);
+          matchesFecha = matchesFecha && itemDate <= hasta;
+        }
+      }
+      
+      return matchesText && matchesModalidad && matchesCiudad && matchesEstado && matchesFecha;
     });
 
     // Ordenar datos
@@ -50,7 +66,7 @@ export default function Cronograma() {
     });
 
     return filtered;
-  }, [filterText, selectedModalidad, selectedCiudad, selectedEstado, sortField, sortDirection]);
+  }, [filterText, selectedModalidad, selectedCiudad, selectedEstado, fechaDesde, fechaHasta, sortField, sortDirection]);
 
   // Paginación
   const totalPages = Math.ceil(filteredAndSortedData.length / itemsPerPage);
@@ -94,6 +110,18 @@ export default function Cronograma() {
     return colors[estado] || 'bg-gray-100 text-gray-800';
   };
 
+  const clearAllFilters = () => {
+    setFilterText('');
+    setSelectedModalidad('Todas');
+    setSelectedCiudad('Todas');
+    setSelectedEstado('Todos');
+    setFechaDesde('');
+    setFechaHasta('');
+    setCurrentPage(1);
+  };
+
+  const hasActiveFilters = filterText || selectedModalidad !== 'Todas' || selectedCiudad !== 'Todas' || selectedEstado !== 'Todos' || fechaDesde || fechaHasta;
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
@@ -127,63 +155,139 @@ export default function Cronograma() {
       {/* Filters Section */}
       <section className="py-8 bg-white border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
-            {/* Search Bar */}
-            <div className="flex-1 max-w-md">
-              <div className="relative">
-                <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Buscar curso, instructor o ciudad..."
-                  value={filterText}
-                  onChange={(e) => setFilterText(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                />
-              </div>
+          <div className="bg-gray-50 rounded-2xl p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <i className="fas fa-filter text-blue-600"></i>
+                Filtros de búsqueda
+              </h3>
+              {hasActiveFilters && (
+                <button
+                  onClick={clearAllFilters}
+                  className="flex items-center gap-2 px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors text-sm font-medium"
+                >
+                  <i className="fas fa-times"></i>
+                  Limpiar filtros
+                </button>
+              )}
             </div>
 
-            {/* Filters */}
-            <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-gray-700">Modalidad:</label>
-                <select
-                  value={selectedModalidad}
-                  onChange={(e) => setSelectedModalidad(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
-                >
-                  {modalidades.map(modalidad => (
-                    <option key={modalidad} value={modalidad}>{modalidad}</option>
-                  ))}
-                </select>
+            <div className="space-y-4">
+              {/* Búsqueda principal */}
+              <div className="w-full">
+                <div className="relative">
+                  <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                  <input
+                    type="text"
+                    placeholder="Buscar por curso, instructor o ciudad..."
+                    value={filterText}
+                    onChange={(e) => setFilterText(e.target.value)}
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+                  />
+                </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-gray-700">Ciudad:</label>
-                <select
-                  value={selectedCiudad}
-                  onChange={(e) => setSelectedCiudad(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                >
-                  {ciudades.map(ciudad => (
-                    <option key={ciudad} value={ciudad}>{ciudad}</option>
-                  ))}
-                </select>
+              {/* Filtros organizados en grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                {/* Modalidad */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <i className="fas fa-laptop-code mr-1 text-amber-600"></i>
+                    Modalidad
+                  </label>
+                  <select
+                    value={selectedModalidad}
+                    onChange={(e) => setSelectedModalidad(e.target.value)}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white"
+                  >
+                    {modalidades.map(modalidad => (
+                      <option key={modalidad} value={modalidad}>{modalidad}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Ciudad */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <i className="fas fa-map-marker-alt mr-1 text-blue-600"></i>
+                    Ciudad
+                  </label>
+                  <select
+                    value={selectedCiudad}
+                    onChange={(e) => setSelectedCiudad(e.target.value)}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+                  >
+                    {ciudades.map(ciudad => (
+                      <option key={ciudad} value={ciudad}>{ciudad}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Estado */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <i className="fas fa-info-circle mr-1 text-red-600"></i>
+                    Estado
+                  </label>
+                  <select
+                    value={selectedEstado}
+                    onChange={(e) => setSelectedEstado(e.target.value)}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500 bg-white"
+                  >
+                    {estados.map(estado => (
+                      <option key={estado} value={estado}>{estado}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Fecha Desde */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <i className="fas fa-calendar-alt mr-1 text-green-600"></i>
+                    Fecha desde
+                  </label>
+                  <input
+                    type="date"
+                    value={fechaDesde}
+                    onChange={(e) => setFechaDesde(e.target.value)}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+                  />
+                </div>
+
+                {/* Fecha Hasta */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-gray-700">
+                    <i className="fas fa-calendar-check mr-1 text-green-600"></i>
+                    Fecha hasta
+                  </label>
+                  <input
+                    type="date"
+                    value={fechaHasta}
+                    onChange={(e) => setFechaHasta(e.target.value)}
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white"
+                  />
+                </div>
               </div>
 
-              <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-gray-700">Estado:</label>
-                <select
-                  value={selectedEstado}
-                  onChange={(e) => setSelectedEstado(e.target.value)}
-                  className="border border-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-red-500 focus:border-red-500"
-                >
-                  {estados.map(estado => (
-                    <option key={estado} value={estado}>{estado}</option>
-                  ))}
-                </select>
-              </div>
+              {/* Indicador de filtro de fechas activo */}
+              {(fechaDesde || fechaHasta) && (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3">
+                  <div className="flex items-center gap-2 text-green-800">
+                    <i className="fas fa-calendar-check"></i>
+                    <span className="text-sm font-medium">
+                      Filtro de fechas activo: 
+                      {fechaDesde && fechaHasta ? 
+                        ` ${formatDate(fechaDesde)} - ${formatDate(fechaHasta)}` :
+                        fechaDesde ? 
+                          ` desde ${formatDate(fechaDesde)}` : 
+                          ` hasta ${formatDate(fechaHasta)}`
+                      }
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

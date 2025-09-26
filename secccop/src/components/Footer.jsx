@@ -33,7 +33,7 @@ export default function Footer() {
   ];
 
   const categories = [
-    { label: "Comunicación", href: "/cursos?category=Comunicación" },
+    { label: "Educación", href: "/cursos?category=Educación" },
     { label: "Emprendimiento", href: "/cursos?category=Emprendimiento" },
     {
       label: "Técnico Especializado",
@@ -101,14 +101,6 @@ export default function Footer() {
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Contacto
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Sobre nosotros
                 </a>
               </li>
             </ul>

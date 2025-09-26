@@ -39,10 +39,10 @@ export default function Cursos() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-              Nuestros Cursos Especializados
+              Nuestros Cursos
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Formación en Lengua de Señas Ecuatoriana, emprendimiento y técnicas especializadas
+              Formación en Educación Inclusiva, emprendimiento y técnicas especializadas
             </p>
             <div className="flex items-center justify-center text-blue-100">
               <span className="flex items-center gap-2">

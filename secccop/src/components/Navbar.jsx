@@ -6,7 +6,7 @@ export default function Navbar() {
 
   const base = "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200";
   const active = "bg-blue-600 text-white shadow-lg";
-  const inactive = "text-gray-700 hover:bg-yellow-100 hover:text-yellow-800";
+  const inactive = "text-gray-700 hover:bg-blue-100 hover:text-blue-800";
 
   return (
     <header className="border-b bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">

@@ -199,6 +199,39 @@ const galleryData = [
         title: "Resultados perfectos"
       }
     ]
+  },
+  {
+    id: 6,
+    category: "Excel Avanzado",
+    icon: "fas fa-table",
+    color: "green",
+    description: "Domina Excel y análisis de datos para el mundo empresarial",
+    images: [
+      {
+        id: 1,
+        src: "/images/Excel/Excel.webp",
+        alt: "Curso de Excel profesional",
+        title: "Excel empresarial"
+      },
+      {
+        id: 2,
+        src: "/images/Excel/curso-excel.webp",
+        alt: "Análisis de datos con Excel",
+        title: "Análisis avanzado"
+      },
+      {
+        id: 3,
+        src: "/images/Excel/cursos-excel.webp",
+        alt: "Dashboards en Excel",
+        title: "Dashboards interactivos"
+      },
+      {
+        id: 4,
+        src: "/images/Excel/excel_basico.webp",
+        alt: "Fundamentos de Excel",
+        title: "Bases sólidas"
+      }
+    ]
   }
 ];
 
