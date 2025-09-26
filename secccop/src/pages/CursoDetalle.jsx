@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import courses from "../data/courses";
 import CourseHeaderCarousel from "../components/CourseHeaderCarousel";
@@ -6,6 +7,7 @@ export default function CursoDetalle() {
   const { id } = useParams();
   const navigate = useNavigate();
   const course = courses.find((c) => String(c.id) === String(id));
+  const [selectedModality, setSelectedModality] = useState(0); // Por defecto la primera modalidad
 
   if (!course) {
     return (
@@ -50,9 +52,9 @@ export default function CursoDetalle() {
 
   const getCategoryColor = (category) => {
     switch (category) {
-      case 'Comunicación':
+      case 'Educación':
         return 'bg-blue-100 text-blue-800';
-      case 'Arte y Oficios':
+      case 'Emprendimiento':
         return 'bg-amber-100 text-amber-800';
       case 'Técnico Especializado':
         return 'bg-red-100 text-red-800';
@@ -147,6 +149,59 @@ export default function CursoDetalle() {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-12">
+              {/* Modalidades Selection - Solo para cursos que tienen modalidades */}
+              {course.modalidades && course.modalidades.length > 0 && (
+                <div className="bg-white rounded-2xl shadow-sm p-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                    <i className="fas fa-graduation-cap text-blue-600"></i>
+                    Elige tu modalidad de aprendizaje
+                  </h2>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {course.modalidades.map((modalidad, index) => (
+                      <div
+                        key={index}
+                        className={`border-2 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
+                          selectedModality === index
+                            ? 'border-blue-500 bg-blue-50 shadow-md'
+                            : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50'
+                        }`}
+                        onClick={() => setSelectedModality(index)}
+                      >
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <span className="text-2xl text-blue-600">
+                              <i className={modalidad.icon}></i>
+                            </span>
+                            <h3 className="text-xl font-bold text-gray-900">{modalidad.type}</h3>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-2xl font-bold text-gray-900">{modalidad.price}</div>
+                            {modalidad.originalPrice && (
+                              <div className="text-sm text-gray-500 line-through">{modalidad.originalPrice}</div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-3 mb-4">
+                          {modalidad.benefits.map((benefit, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <i className="fas fa-check text-green-500 mt-1 text-sm"></i>
+                              <span className="text-gray-700 text-sm">{benefit}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {modalidad.discount && (
+                          <div className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium inline-block">
+                            {modalidad.discount} descuento
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* What you'll learn */}
               <div className="bg-white rounded-2xl shadow-sm p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
@@ -219,13 +274,24 @@ export default function CursoDetalle() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                   <i className="fas fa-book text-blue-600"></i>
                   Contenido del curso
+                  {course.modalidades && course.modalidades.length > 0 && (
+                    <span className="text-base font-normal text-gray-600">
+                      - Modalidad {course.modalidades[selectedModality].type}
+                    </span>
+                  )}
                 </h2>
                 <div className="space-y-6">
-                  {(course.courseContent || [
-                    { title: "Módulo 1", lessons: 5, duration: "1.5h", topics: ["Contenido por definir"] },
-                    { title: "Módulo 2", lessons: 8, duration: "3h", topics: ["Contenido por definir"] },
-                    { title: "Módulo 3", lessons: 6, duration: "2h", topics: ["Contenido por definir"] }
-                  ]).map((module, i) => (
+                  {(() => {
+                    // Si el curso tiene modalidades, usar el contenido de la modalidad seleccionada
+                    const courseContent = course.modalidades && course.modalidades.length > 0 
+                      ? course.modalidades[selectedModality].courseContent 
+                      : course.courseContent || [
+                          { title: "Módulo 1", lessons: 5, duration: "1.5h", topics: ["Contenido por definir"] },
+                          { title: "Módulo 2", lessons: 8, duration: "3h", topics: ["Contenido por definir"] },
+                          { title: "Módulo 3", lessons: 6, duration: "2h", topics: ["Contenido por definir"] }
+                        ];
+                    
+                    return courseContent.map((module, i) => (
                     <div key={i} className="border border-gray-200 rounded-xl p-6 hover:shadow-md transition-all duration-200">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
@@ -252,7 +318,8 @@ export default function CursoDetalle() {
                         </div>
                       )}
                     </div>
-                  ))}
+                  ));
+                  })()}
                 </div>
               </div>
 
@@ -261,26 +328,116 @@ export default function CursoDetalle() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                   <i className="fas fa-clipboard-list text-blue-600"></i>
                   Requisitos
+                  {course.modalidades && course.modalidades.length > 0 && (
+                    <span className="text-base font-normal text-gray-600">
+                      - Modalidad {course.modalidades[selectedModality].type}
+                    </span>
+                  )}
                 </h2>
                 <ul className="space-y-3 text-gray-700">
-                  <li className="flex items-start gap-3">
-                    <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
-                    <span>Ganas de aprender y dedicación para practicar</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
-                    <span>Computadora con conexión a internet</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
-                    <span>Ganas de aprender y tiempo para practicar</span>
-                  </li>
+                  {(() => {
+                    // Si el curso tiene modalidades, usar los requisitos de la modalidad seleccionada
+                    const requirements = course.modalidades && course.modalidades.length > 0 
+                      ? course.modalidades[selectedModality].requirements 
+                      : course.requirements || [
+                          "Ganas de aprender y dedicación para practicar",
+                          "Computadora con conexión a internet",
+                          "Ganas de aprender y tiempo para practicar"
+                        ];
+                    
+                    return requirements.map((requirement, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <i className="fas fa-circle text-blue-500 text-xs mt-2"></i>
+                        <span>{requirement}</span>
+                      </li>
+                    ));
+                  })()}
                 </ul>
               </div>
             </div>
 
             {/* Sidebar */}
             <div className="space-y-8">
+              {/* Modalidad Info - Solo para cursos con modalidades */}
+              {course.modalidades && course.modalidades.length > 0 && (
+                <div className="bg-white rounded-2xl shadow-sm p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <i className={course.modalidades[selectedModality].icon}></i>
+                    Modalidad {course.modalidades[selectedModality].type}
+                  </h3>
+                  
+                  <div className="space-y-4">
+                    {/* Precio */}
+                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
+                      <span className="text-gray-700 font-medium">Precio:</span>
+                      <div className="text-right">
+                        <span className="text-2xl font-bold text-blue-600">
+                          {course.modalidades[selectedModality].price}
+                        </span>
+                        {course.modalidades[selectedModality].originalPrice && (
+                          <div className="text-sm text-gray-500 line-through">
+                            {course.modalidades[selectedModality].originalPrice}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Horarios */}
+                    {course.modalidades[selectedModality].schedule && (
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-gray-900 flex items-center gap-2">
+                          <i className="fas fa-calendar-alt text-blue-600"></i>
+                          Horarios disponibles:
+                        </h4>
+                        <div className="space-y-1">
+                          {course.modalidades[selectedModality].schedule.map((schedule, i) => (
+                            <div key={i} className="text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded">
+                              {schedule}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Ubicación (solo para presencial) */}
+                    {course.modalidades[selectedModality].location && (
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-gray-900 flex items-center gap-2">
+                          <i className="fas fa-map-marker-alt text-blue-600"></i>
+                          Ubicación:
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {course.modalidades[selectedModality].location}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Incluye */}
+                    {course.modalidades[selectedModality].includes && (
+                      <div className="space-y-2">
+                        <h4 className="font-medium text-gray-900 flex items-center gap-2">
+                          <i className="fas fa-gift text-blue-600"></i>
+                          Incluye:
+                        </h4>
+                        <div className="space-y-1">
+                          {course.modalidades[selectedModality].includes.map((item, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                              <i className="fas fa-check text-green-500 text-xs"></i>
+                              <span className="text-sm text-gray-600">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Botón de acción */}
+                    <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                      Inscribirse - {course.modalidades[selectedModality].type}
+                    </button>
+                  </div>
+                </div>
+              )}
+
               {/* Instructor info */}
               <div className="bg-white rounded-2xl shadow-sm p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-4">Tu instructor</h3>

@@ -1,97 +1,92 @@
 const courses = [
   {
     id: 1,
-    title: "Lengua de Señas Ecuatoriana - Online",
-    shortDescription: "Formación profesional completa en Lengua de Señas Ecuatoriana con certificación oficial del Ministerio de Educación. Modalidad 100% virtual con plataforma interactiva, manual digital y acompañamiento de instructores especializados para desarrollar competencias comunicativas inclusivas.",
-    longDescription: "Programa integral de formación en Lengua de Señas Ecuatoriana (LSEC) en modalidad virtual, diseñado según los estándares del Ministerio de Educación. Desarrolla competencias comunicativas para la inclusión social y laboral, con metodología interactiva y evaluación continua. Ideal para profesionales de educación, salud, servicio al cliente y personas comprometidas con la inclusión.",
+    title: "Lengua de Señas Ecuatoriana",
+    shortDescription: "Formación profesional completa en Lengua de Señas Ecuatoriana con certificación oficial del Ministerio de Educación. Disponible en modalidad presencial en Quito y 100% virtual con plataforma interactiva. Desarrolla competencias comunicativas inclusivas con instructores especializados.",
+    longDescription: "Programa integral de formación en Lengua de Señas Ecuatoriana (LSEC) diseñado según los estándares del Ministerio de Educación. Ofrecemos dos modalidades de aprendizaje para adaptarse a tus necesidades: presencial en Quito con práctica directa e inmersión cultural, y virtual con plataforma interactiva y flexibilidad horaria. Ambas modalidades incluyen práctica con la comunidad sorda, certificación oficial y material didáctico completo.",
     topics: [
       "Fundamentos históricos y culturales de la comunidad sorda ecuatoriana",
       "Sistema dactilológico y configuraciones manuales básicas",
-      "Vocabulario esencial: familia, trabajo, tiempo y espacios",
-      "Estructura gramatical específica de la LSEC",
+      "Vocabulario esencial y especializado por campos profesionales",
+      "Estructura gramatical y sintaxis específica de la LSEC",
       "Expresiones faciales y corporales como elementos lingüísticos",
       "Conversación contextualizada en situaciones cotidianas y profesionales",
+      "Práctica con personas sordas nativas (presencial) / Simulacros interactivos (virtual)",
       "Interpretación básica y mediación comunicativa",
-      "Marco legal de los derechos de las personas sordas en Ecuador"
-    ],
-    duration: "3 módulos",
-    level: "Principiante",
-    price: "$40",
-    originalPrice: "$50",
-    discount: "20%",
-    rating: 4.9,
-    students: 850,
-    category: "Comunicación",
-    icon: "fas fa-hands",
-    featured: true,
-    instructor: "Especialistas LSEC",
-    courseContent: [
-      { title: "Módulo 1: Fundamentos de la LSEC", lessons: 6, duration: "8h", topics: ["Historia y cultura sorda", "Dactilología básica", "Configuraciones manuales", "Vocabulario esencial"] },
-      { title: "Módulo 2: Comunicación Intermedia", lessons: 8, duration: "12h", topics: ["Gramática LSEC", "Expresiones faciales", "Conversación básica", "Contextos familiares"] },
-      { title: "Módulo 3: Aplicación Profesional", lessons: 10, duration: "15h", topics: ["Vocabulario especializado", "Interpretación básica", "Marco legal", "Práctica en contextos reales"] }
-    ],
-    requirements: [
-      "Acceso a internet estable para clases virtuales",
-      "Dispositivo con cámara web funcional (para práctica de señas)",
-      "Disponibilidad de tiempo para práctica diaria (30 min mínimo)",
-      "Actitud de respeto hacia la cultura sorda",
-      "Compromiso con el aprendizaje continuo"
-    ],
-    image: "/images/Lengua de señas/LenguaDeSeñas.webp",
-    gallery: [
-      "/images/Lengua de señas/Galeria/1.webp",
-      "/images/Lengua de señas/Galeria/2.webp",
-      "/images/Lengua de señas/Galeria/3.webp",
-      "/images/Lengua de señas/Galeria/4.webp",
-      "/images/Lengua de señas/Galeria/5.webp",
-      "/images/Lengua de señas/Galeria/6.webp"
-    ],
-    modality: "Online",
-    schedule: [
-      "Nocturno: L-V 19:00-20:00 (Inicio: 8 sep)",
-      "Vespertino: Dom 13:00-15:00 (Inicio: 14 sep)",
-      "Intensivo: Mié 18:00-19:30 (Inicio: 3 sep)"
-    ],
-    includes: ["Manual digital", "Plataforma virtual", "Certificación oficial"],
-    certification: "Aval académico Ministerio de Educación"
-  },
-  {
-    id: 2,
-    title: "Lengua de Señas Ecuatoriana - Presencial Quito",
-    shortDescription: "Capacitación presencial intensiva en Lengua de Señas Ecuatoriana con instructores certificados en nuestras instalaciones de Quito. Incluye práctica directa con la comunidad sorda, material didáctico completo y certificación con aval del Ministerio de Educación válida para concursos públicos.",
-    longDescription: "Programa presencial de capacitación en Lengua de Señas Ecuatoriana con énfasis en la práctica interactiva y el aprendizaje colaborativo. Incluye simulacros de situaciones reales, intercambio con la comunidad sorda y desarrollo de habilidades de interpretación básica. Certificación oficial con reconocimiento para el sector público y privado ecuatoriano.",
-    topics: [
-      "Inmersión cultural: historia y identidad de la comunidad sorda ecuatoriana",
-      "Técnicas de expresión manual y configuraciones específicas de la LSEC",
-      "Vocabulario especializado por campos: salud, educación, servicios públicos",
-      "Sintaxis y morfología de la lengua de señas ecuatoriana",
-      "Práctica conversacional con personas sordas nativas",
-      "Desarrollo de competencias interpretativas básicas",
-      "Aplicación en contextos laborales y sociales ecuatorianos",
+      "Marco legal de los derechos de las personas sordas en Ecuador",
       "Tecnologías de apoyo y recursos digitales para personas sordas"
     ],
     duration: "3 módulos",
     level: "Principiante",
-    price: "$50",
+    price: "$40",
     originalPrice: "$60",
-    discount: "17%",
+    discount: "33%",
     rating: 4.8,
-    students: 320,
-    category: "Comunicación",
+    students: 1170,
+    category: "Educación",
     icon: "fas fa-hands",
     featured: true,
-    instructor: "Instructores certificados LSEC",
-    courseContent: [
-      { title: "Módulo 1: Inmersión Cultural", lessons: 4, duration: "6h", topics: ["Identidad sorda ecuatoriana", "Comunicación no verbal", "Dactilología práctica", "Interacción básica"] },
-      { title: "Módulo 2: Desarrollo Lingüístico", lessons: 6, duration: "9h", topics: ["Sintaxis LSEC", "Vocabulario contextual", "Práctica conversacional", "Corrección de errores"] },
-      { title: "Módulo 3: Competencia Comunicativa", lessons: 8, duration: "12h", topics: ["Interpretación práctica", "Mediación comunicativa", "Aplicación laboral", "Evaluación final"] }
-    ],
-    requirements: [
-      "Asistencia presencial obligatoria en Quito",
-      "Puntualidad en todas las sesiones (tolerancia 10 min)",
-      "Participación activa en dinámicas grupales",
-      "Respeto hacia compañeros y instructores sordos",
-      "Compromiso con la práctica entre sesiones"
+    instructor: "Especialistas en Educación",
+    modalidades: [
+      {
+        type: "Online",
+        price: "$40",
+        originalPrice: "$50",
+        discount: "20%",
+        icon: "fas fa-laptop",
+        benefits: [
+          "Flexibilidad horaria",
+          "Plataforma interactiva 24/7",
+          "Manual digital descargable",
+          "Grabaciones de clases",
+          "Soporte técnico personalizado"
+        ],
+        requirements: [
+          "Acceso a internet estable",
+          "Dispositivo con cámara web funcional",
+          "Disponibilidad de práctica diaria (30 min)",
+          "Actitud de respeto hacia la cultura sorda"
+        ],
+        schedule: [
+          "Nocturno: L-V 19:00-20:00 (Inicio: 8 sep)",
+          "Vespertino: Dom 13:00-15:00 (Inicio: 14 sep)",
+          "Intensivo: Mié 18:00-19:30 (Inicio: 3 sep)"
+        ],
+        includes: ["Manual digital", "Plataforma virtual", "Certificación oficial"],
+        courseContent: [
+          { title: "Módulo 1: Fundamentos de la LSEC", lessons: 6, duration: "8h", topics: ["Historia y cultura sorda", "Dactilología básica", "Configuraciones manuales", "Vocabulario esencial"] },
+          { title: "Módulo 2: Comunicación Intermedia", lessons: 8, duration: "12h", topics: ["Gramática LSEC", "Expresiones faciales", "Conversación básica", "Contextos familiares"] },
+          { title: "Módulo 3: Aplicación Profesional", lessons: 10, duration: "15h", topics: ["Vocabulario especializado", "Interpretación básica", "Marco legal", "Práctica en contextos reales"] }
+        ]
+      },
+      {
+        type: "Presencial",
+        price: "$50",
+        originalPrice: "$60",
+        discount: "17%",
+        icon: "fas fa-users",
+        benefits: [
+          "Práctica directa con comunidad sorda",
+          "Inmersión cultural presencial",
+          "Corrección inmediata de errores",
+          "Networking con otros estudiantes",
+          "Material físico incluido"
+        ],
+        requirements: [
+          "Asistencia presencial obligatoria en Quito",
+          "Puntualidad en todas las sesiones",
+          "Participación activa en dinámicas grupales",
+          "Respeto hacia compañeros e instructores sordos"
+        ],
+        schedule: ["Sábados 10:00-12:00 (Inicio: 20 sep)"],
+        location: "Av. Luis Saa y Sodiro, Parque La Alameda, Edificio Daniel Cadena",
+        includes: ["3 módulos completos", "Material para cada clase", "Plataforma de apoyo"],
+        courseContent: [
+          { title: "Módulo 1: Inmersión Cultural", lessons: 4, duration: "6h", topics: ["Identidad sorda ecuatoriana", "Comunicación no verbal", "Dactilología práctica", "Interacción básica"] },
+          { title: "Módulo 2: Desarrollo Lingüístico", lessons: 6, duration: "9h", topics: ["Sintaxis LSEC", "Vocabulario contextual", "Práctica conversacional", "Corrección de errores"] },
+          { title: "Módulo 3: Competencia Comunicativa", lessons: 8, duration: "12h", topics: ["Interpretación práctica", "Mediación comunicativa", "Aplicación laboral", "Evaluación final"] }
+        ]
+      }
     ],
     image: "/images/Lengua de señas/LenguaDeSeñas.webp",
     gallery: [
@@ -102,14 +97,10 @@ const courses = [
       "/images/Lengua de señas/Galeria/5.webp",
       "/images/Lengua de señas/Galeria/6.webp"
     ],
-    modality: "Presencial",
-    schedule: ["Sábados 10:00-12:00 (Inicio: 20 sep)"],
-    location: "Av. Luis Saa y Sodiro, Parque La Alameda, Edificio Daniel Cadena",
-    includes: ["3 módulos completos", "Material para cada clase", "Plataforma de apoyo"],
     certification: "Aval académico Ministerio de Educación"
   },
   {
-    id: 3,
+    id: 2,
     title: "Decoración de Eventos con Globos",
     shortDescription: "Curso intensivo de decoración profesional para eventos corporativos y sociales. Aprende técnicas avanzadas de globoflexia, construcción de arcos orgánicos y diseño creativo. Incluye todos los materiales, certificación avalizada y herramientas para iniciar tu propio emprendimiento en el sector de eventos.",
     longDescription: "Programa intensivo de formación en artes decorativas especializadas en globoflexia y ornamentación de eventos. Desarrolla competencias técnicas para el diseño, planificación y ejecución de decoraciones profesionales. Incluye fundamentos de emprendimiento, costeo de servicios y marketing digital para el sector de eventos en Ecuador.",
@@ -133,7 +124,7 @@ const courses = [
     category: "Emprendimiento",
     icon: "fas fa-birthday-cake",
     featured: true,
-    instructor: "Especialistas en decoración",
+    instructor: "Especialistas en Emprendimiento",
     courseContent: [
       { title: "Fundamentos del Diseño", lessons: 3, duration: "2h", topics: ["Teoría del color", "Planificación de eventos", "Herramientas básicas", "Medidas de seguridad"] },
       { title: "Técnicas de Construcción", lessons: 5, duration: "3h", topics: ["Arcos orgánicos", "Columnas decorativas", "Torres y estructuras", "Sistemas de anclaje"] },
@@ -162,7 +153,7 @@ const courses = [
     reservation: "Reserva con $10, cupos limitados"
   },
   {
-    id: 4,
+    id: 3,
     title: "Emprendimiento - Arte en Fomix",
     shortDescription: "Domina las técnicas profesionales de termoformado en foamy para crear figuras artísticas comercializables. Curso práctico de 2 días con material incluido, enfocado en el desarrollo de productos únicos para emprendimiento artesanal con alto potencial de mercado en Ecuador.",
     longDescription: "Programa de capacitación artística especializada en el trabajo con foamy (goma eva) utilizando técnicas de termoformado y moldeado profesional. Orientado al desarrollo de productos artesanales con valor comercial, incluyendo aspectos de emprendimiento, diseño de productos y canales de comercialización para el mercado ecuatoriano.",
@@ -186,7 +177,7 @@ const courses = [
     category: "Emprendimiento",
     icon: "fas fa-palette",
     featured: false,
-    instructor: "Lic. Mayra Pérez",
+    instructor: "Especialistas en Emprendimiento",
     courseContent: [
       { title: "Día 1: Fundamentos Técnicos", lessons: 4, duration: "4h", topics: ["Propiedades del foamy", "Herramientas especializadas", "Técnicas de corte", "Termoformado básico"] },
       { title: "Día 2: Creación Artística", lessons: 5, duration: "4h", topics: ["Diseño anatómico", "Moldeado avanzado", "Técnicas de pintura", "Acabados profesionales"] }
@@ -210,7 +201,7 @@ const courses = [
     reservation: "Reserva cupo con $10"
   },
   {
-    id: 5,
+    id: 4,
     title: "Modelado en Porcelana Fría",
     shortDescription: "Especialízate en modelado artístico utilizando pasta cerámica sin cocción para crear obras decorativas y souvenirs únicos. Combina técnicas tradicionales ecuatorianas con tendencias contemporáneas del mercado artesanal. Incluye material completo y certificado de participación.",
     longDescription: "Programa de formación artística especializada en el trabajo con porcelana fría (pasta cerámica sin cocción). Desarrolla competencias técnicas para la creación de piezas decorativas, souvenirs y objetos artísticos. Incluye técnicas tradicionales ecuatorianas adaptadas a tendencias contemporáneas del mercado artesanal nacional e internacional.",
@@ -234,7 +225,7 @@ const courses = [
     category: "Emprendimiento",
     icon: "fas fa-shapes",
     featured: false,
-    instructor: "Artistas especialistas",
+    instructor: "Especialistas en Emprendimiento",
     courseContent: [
       { title: "Preparación de Materiales", lessons: 3, duration: "2h", topics: ["Tipos de pasta", "Preparación y amasado", "Herramientas básicas", "Conservación"] },
       { title: "Técnicas de Modelado", lessons: 6, duration: "4h", topics: ["Anatomía básica", "Proporciones", "Texturización", "Unión de piezas"] },
@@ -259,7 +250,7 @@ const courses = [
     reservation: "Reserva con $10, paga resto al iniciar"
   },
   {
-    id: 6,
+    id: 5,
     title: "Fabricación de Moldes en Silicón",
     shortDescription: "Capacitación técnica avanzada en fabricación de moldes industriales con caucho de silicón de grado profesional. Dirigido a emprendedores y artesanos que buscan escalar su producción. Incluye todos los materiales especializados, herramientas y procesos de control de calidad para reproducción en serie.",
     longDescription: "Programa técnico avanzado de fabricación de moldes flexibles utilizando caucho de silicón de grado industrial. Dirigido a emprendedores, artesanos y profesionales técnicos que requieren desarrollar capacidades de reproducción en serie para productos comerciales. Incluye aspectos de control de calidad, costos de producción y escalabilidad industrial.",
@@ -282,10 +273,10 @@ const courses = [
     discount: "17%",
     rating: 4.8,
     students: 75,
-    category: "Técnico Especializado",
+    category: "Emprendimiento",
     icon: "fas fa-tools",
     featured: false,
-    instructor: "Fausto Loachamin (Lic. Artes Plásticas)",
+    instructor: "Especialistas en Emprendimiento",
     courseContent: [
       { title: "Sábado: Fundamentos Técnicos", lessons: 5, duration: "5h", topics: ["Propiedades del silicón", "Diseño de moldes", "Preparación de materiales", "Construcción de camas"] },
       { title: "Domingo: Aplicación Práctica", lessons: 5, duration: "5h", topics: ["Vaciado controlado", "Contramoldes", "Control de calidad", "Reproducción en resina"] }
@@ -305,6 +296,64 @@ const courses = [
     certification: "Certificado de Participación",
     method: "100% práctico",
     discount_until: "20% descuento hasta 20 de julio"
+  },
+  {
+    id: 6,
+    title: "Excel Avanzado - Análisis de Datos",
+    shortDescription: "Domina Excel desde nivel básico hasta avanzado con enfoque profesional en análisis de datos, automatización con macros y creación de dashboards interactivos. Certificación técnica avalizada y herramientas para optimizar procesos empresariales y aumentar tu productividad laboral.",
+    longDescription: "Programa técnico integral de Excel orientado al mundo empresarial y profesional. Desarrolla competencias avanzadas en análisis de datos, creación de informes dinámicos, automatización de procesos con VBA y diseño de dashboards profesionales. Incluye casos prácticos reales del sector financiero, contable y administrativo ecuatoriano.",
+    topics: [
+      "Fundamentos avanzados: fórmulas complejas y funciones especializadas",
+      "Análisis de datos con tablas dinámicas y gráficos profesionales",
+      "Automatización de procesos con macros y programación VBA básica",
+      "Creación de dashboards interactivos y reportes ejecutivos",
+      "Funciones financieras y análisis de rentabilidad empresarial",
+      "Tratamiento de bases de datos y conectividad con sistemas externos",
+      "Validación de datos y control de errores en hojas de cálculo",
+      "Optimización de rendimiento y buenas prácticas profesionales",
+      "Integración con Power BI y herramientas de Microsoft Office",
+      "Casos prácticos del sector empresarial ecuatoriano"
+    ],
+    duration: "4 semanas",
+    level: "Intermedio",
+    price: "$80",
+    originalPrice: "$100",
+    discount: "20%",
+    rating: 4.9,
+    students: 240,
+    category: "Técnico Especializado",
+    icon: "fas fa-table",
+    featured: true,
+    instructor: "Especialistas Técnicos",
+    courseContent: [
+      { title: "Semana 1: Fundamentos Avanzados", lessons: 8, duration: "12h", topics: ["Fórmulas complejas", "Funciones anidadas", "Referencias absolutas y mixtas", "Formato condicional avanzado"] },
+      { title: "Semana 2: Análisis de Datos", lessons: 10, duration: "15h", topics: ["Tablas dinámicas", "Gráficos profesionales", "Filtros avanzados", "Análisis de tendencias"] },
+      { title: "Semana 3: Automatización", lessons: 12, duration: "18h", topics: ["Introducción a VBA", "Creación de macros", "Automatización de tareas", "Formularios de usuario"] },
+      { title: "Semana 4: Dashboards y Reportes", lessons: 10, duration: "15h", topics: ["Diseño de dashboards", "Reportes ejecutivos", "Integración Power BI", "Presentación de resultados"] }
+    ],
+    requirements: [
+      "Conocimientos básicos de Excel (manejo de celdas, fórmulas simples)",
+      "Microsoft Excel 2016 o superior instalado",
+      "Experiencia básica en manejo de datos y hojas de cálculo",
+      "Disponibilidad para práctica diaria (1 hora mínimo)",
+      "Interés en análisis de datos y automatización de procesos"
+    ],
+    image: "/images/Excel/Excel.webp",
+    gallery: [
+      "/images/Excel/curso-excel.webp",
+      "/images/Excel/cursos-excel.webp",
+      "/images/Excel/excel_basico.webp"
+    ],
+    modality: "Online",
+    schedule: [
+      "Lunes y Miércoles: 19:00-21:00 (Inicio: 30 sep)",
+      "Sábados: 09:00-12:00 (Inicio: 5 oct)",
+      "Intensivo: Mar-Jue 18:00-20:00 (Inicio: 1 oct)"
+    ],
+    includes: ["Material didáctico digital", "Plantillas profesionales", "Certificación técnica", "Acceso a comunidad de práctica"],
+    certification: "Certificado Técnico en Excel Avanzado - SECCOP",
+    method: "70% práctico, 30% teórico",
+    projects: "3 proyectos reales empresariales"
   }
 ];
 
