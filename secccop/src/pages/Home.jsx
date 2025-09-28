@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import courses from "../data/courses";
 import Card from "../components/Card";
-import ImageCarousel from "../components/ImageCarousel";
+import HeroCarousel from "../components/HeroCarousel";
 
 export default function Home() {
   const featuredCourses = courses.filter(course => course.featured).slice(0, 3);
@@ -14,98 +14,65 @@ export default function Home() {
     { icon: "fas fa-trophy", number: "92%", label: "Tasa de satisfacción" }
   ];
 
-  // Imágenes para el carrusel del hero
-  const heroImages = [
+  // Slides para el carrusel del hero
+  const heroSlides = [
     {
-      src: "/images/Seccop.webp",
-      alt: "SECCOP - Centro de Capacitación Profesional"
+      image: "/images/CarruselHome/1.webp",
+      title: "Adquiere las competencias profesionales que necesitas",
+      subtitle: "Somos una empresa que brinda servicios de asesoría y capacitación personalizada a empresas y público en general. Ofrecemos cursos regulares e intensivos en modalidades online y presencial.",
+      badge: "Servicio Ecuatoriano de Capacitación por Competencias Profesionales",
+      primaryButton: {
+        text: "Explorar cursos",
+        link: "/cursos",
+        icon: "fas fa-graduation-cap"
+      },
+      secondaryButton: {
+        text: "Solicitar asesoría",
+        link: "/asesoria",
+        icon: "fas fa-briefcase"
+      }
     },
     {
-      src: "/images/Lengua de señas/LenguaDeSeñas.webp",
-      alt: "Curso de Lengua de Señas Ecuatoriana - SECCOP"
+      image: "/images/CarruselHome/2.webp",
+      title: "Formación Inclusiva de Calidad",
+      subtitle: "Contamos con metodologías validadas a nivel nacional y la experiencia suficiente para garantizar la calidad de nuestros servicios educativos especializados.",
+      badge: "Metodologías Validadas Nacionalmente",
+      primaryButton: {
+        text: "Ver certificaciones",
+        link: "/cursos",
+        icon: "fas fa-certificate"
+      },
+      secondaryButton: {
+        text: "Conocer más",
+        link: "#about",
+        icon: "fas fa-info-circle"
+      }
     },
     {
-      src: "/images/Fomix/Fomix.webp",
-      alt: "Taller de Arte en Fomix - Emprendimiento Creativo"
-    },
-    {
-      src: "/images/Globos/globos.webp",
-      alt: "Decoración de Eventos con Globos - Curso Práctico"
-    },
-    {
-      src: "/images/Porcelana/Porcelana.webp",
-      alt: "Pintura en Porcelana - Arte y Tradición"
+      image: "/images/CarruselHome/3.webp",
+      title: "Competencias que Transforman Vidas",
+      subtitle: "Nuestros programas de formación permiten acceder a más y mejores oportunidades laborales a través del desarrollo de competencias clave para el éxito profesional.",
+      badge: "Transformando el Futuro Laboral",
+      primaryButton: {
+        text: "Comenzar ahora",
+        link: "/cursos",
+        icon: "fas fa-rocket"
+      },
+      secondaryButton: {
+        text: "Ver cronograma",
+        link: "/cronograma",
+        icon: "fas fa-calendar-alt"
+      }
     }
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden ">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        <div className="container mx-auto px-4 py-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center">
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
-                  <i className="fas fa-graduation-cap"></i> Servicio Ecuatoriano de Capacitación por Competencias Profesionales
-                </div>
-                <h1 className="text-4xl lg:text-6xl font-bold leading-tight text-gray-900">
-                  Adquiere las competencias 
-                  <span className="text-blue-600"> profesionales que necesitas</span>
-                </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Somos una empresa que brinda servicios de <strong className="text-blue-600">asesoría y capacitación personalizada</strong> a empresas 
-                  y público en general. Ofrecemos cursos regulares e intensivos en modalidades online y presencial.
-                </p>
-              </div>
-              
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  to="/cursos"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  <i className="fas fa-graduation-cap"></i>
-                  Explorar cursos
-                </Link>
-                <Link
-                  to="/asesoria"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-amber-500 text-white hover:bg-amber-600 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
-                >
-                  <i className="fas fa-briefcase"></i>
-                  Solicitar asesoría
-                </Link>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-0">
-                {stats.map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-2xl mb-1 text-blue-600">
-                      <i className={stat.icon}></i>
-                    </div>
-                    <div className="text-2xl font-bold text-gray-900">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="relative lg:mt-[-2rem]">
-              <div className="relative h-96 lg:h-[500px]">
-                <ImageCarousel 
-                  images={heroImages} 
-                  interval={5000}
-                  className="h-full shadow-2xl"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section - Full Screen Carousel */}
+      <HeroCarousel slides={heroSlides} interval={7000} />
 
       {/* About Us Section */}
-      <section className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">

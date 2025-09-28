@@ -93,21 +93,21 @@ export default function Cronograma() {
 
   const getModalidadColor = (modalidad) => {
     const colors = {
-      'Presencial': 'bg-blue-100 text-blue-800',
-      'Virtual': 'bg-amber-100 text-amber-800',
-      'Híbrida': 'bg-red-100 text-red-800'
+      'Presencial': 'bg-blue-200 text-blue-900',
+      'Virtual': 'bg-amber-200 text-amber-900',
+      'Híbrida': 'bg-red-200 text-red-900'
     };
-    return colors[modalidad] || 'bg-gray-100 text-gray-800';
+    return colors[modalidad] || 'bg-gray-200 text-gray-900';
   };
 
   const getEstadoColor = (estado) => {
     const colors = {
-      'Inscripciones Abiertas': 'bg-green-100 text-green-800',
-      'Últimos Cupos': 'bg-red-100 text-red-800',
-      'Próximamente': 'bg-yellow-100 text-yellow-800',
-      'Lleno': 'bg-gray-100 text-gray-800'
+      'Inscripciones Abiertas': 'bg-green-200 text-green-900',
+      'Últimos Cupos': 'bg-red-200 text-red-900',
+      'Próximamente': 'bg-yellow-200 text-yellow-900',
+      'Lleno': 'bg-gray-200 text-gray-900'
     };
-    return colors[estado] || 'bg-gray-100 text-gray-800';
+    return colors[estado] || 'bg-gray-200 text-gray-900';
   };
 
   const clearAllFilters = () => {
@@ -310,121 +310,152 @@ export default function Cronograma() {
             
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-blue-600 text-white">
                   <tr>
                     <th 
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                      className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider cursor-pointer hover:bg-blue-700 transition-colors"
                       onClick={() => handleSort('curso')}
                     >
-                      <div className="flex items-center">
+                      <div className="flex items-center gap-1">
                         Curso
                         {sortField === 'curso' && (
-                          <svg className={`ml-1 w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                          <svg className={`w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
                         )}
                       </div>
                     </th>
                     <th 
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                      className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider cursor-pointer hover:bg-blue-700 transition-colors"
                       onClick={() => handleSort('fechaInicio')}
                     >
-                      <div className="flex items-center">
-                        Fecha de Inicio
+                      <div className="flex items-center gap-1">
+                        Fecha Inicio
                         {sortField === 'fechaInicio' && (
-                          <svg className={`ml-1 w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                          <svg className={`w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
                         )}
                       </div>
                     </th>
                     <th 
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                      className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider cursor-pointer hover:bg-blue-700 transition-colors"
                       onClick={() => handleSort('modalidad')}
                     >
-                      <div className="flex items-center">
+                      <div className="flex items-center gap-1">
                         Modalidad
                         {sortField === 'modalidad' && (
-                          <svg className={`ml-1 w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                          <svg className={`w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
                         )}
                       </div>
                     </th>
                     <th 
-                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+                      className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider cursor-pointer hover:bg-blue-700 transition-colors"
                       onClick={() => handleSort('ciudad')}
                     >
-                      <div className="flex items-center">
+                      <div className="flex items-center gap-1">
                         Ciudad
                         {sortField === 'ciudad' && (
-                          <svg className={`ml-1 w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
+                          <svg className={`w-3 h-3 transform ${sortDirection === 'desc' ? 'rotate-180' : ''}`} fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
                         )}
                       </div>
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duración</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Instructor</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+                      Duración
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+                      Instructor
+                    </th>
+                    <th className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider">
+                      Estado
+                    </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {paginatedData.map((item, index) => (
-                    <tr key={item.id} className="hover:bg-gray-50">
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="font-medium text-gray-900">{item.curso}</div>
+                <tbody className="bg-white">
+                  {paginatedData.length === 0 ? (
+                    <tr>
+                      <td colSpan="7" className="px-6 py-8 text-center">
+                        <div className="flex flex-col items-center justify-center space-y-3">
+                          <i className="fas fa-search text-3xl text-gray-400"></i>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-1">No se encontraron cursos</h3>
+                            <p className="text-gray-500 text-sm">Intenta ajustar los filtros o el término de búsqueda</p>
+                          </div>
+                        </div>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    </tr>
+                  ) : (
+                    paginatedData.map((item, index) => (
+                    <tr 
+                      key={item.id} 
+                      className={`
+                        transition-all duration-200 hover:shadow-md
+                        ${index % 2 === 0 
+                          ? 'bg-white hover:bg-blue-50' 
+                          : 'bg-blue-100/60 hover:bg-blue-100'
+                        }
+                        border-b border-gray-200
+                      `}
+                    >
+                      <td className="px-4 py-3 whitespace-nowrap">
+                        <div className="font-medium text-gray-900 text-sm">{item.curso}</div>
+                      </td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
                         {formatDate(item.fechaInicio)}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 py-3 whitespace-nowrap">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getModalidadColor(item.modalidad)}`}>
                           {item.modalidad}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
                         {item.ciudad}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
                         {item.duracion}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">
                         {item.instructor}
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-4 py-3 whitespace-nowrap">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${getEstadoColor(item.estado)}`}>
                           {item.estado}
                         </span>
                       </td>
                     </tr>
-                  ))}
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="px-6 py-3 border-t border-gray-200 bg-gray-50">
+              <div className="px-4 py-3 border-t border-gray-200 bg-gray-50">
                 <div className="flex items-center justify-between">
                   <div className="text-sm text-gray-700">
                     Mostrando {startIndex + 1} a {Math.min(startIndex + itemsPerPage, filteredAndSortedData.length)} de {filteredAndSortedData.length} resultados
                   </div>
-                  <div className="flex space-x-2">
+                  <div className="flex items-center space-x-1">
                     <button
                       onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                       disabled={currentPage === 1}
-                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       Anterior
                     </button>
+                    
                     {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
                       const pageNum = i + 1;
                       return (
                         <button
                           key={pageNum}
                           onClick={() => setCurrentPage(pageNum)}
-                          className={`px-3 py-1 text-sm border rounded ${
+                          className={`w-8 h-8 text-sm border rounded transition-all ${
                             currentPage === pageNum
                               ? 'bg-blue-600 text-white border-blue-600'
                               : 'bg-white text-gray-700 border-gray-300 hover:bg-blue-50 hover:border-blue-300'
@@ -434,10 +465,11 @@ export default function Cronograma() {
                         </button>
                       );
                     })}
+                    
                     <button
                       onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                       disabled={currentPage === totalPages}
-                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-red-50 hover:border-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-3 py-1 text-sm bg-white border border-gray-300 rounded hover:bg-blue-50 hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                     >
                       Siguiente
                     </button>
