@@ -132,7 +132,7 @@ export default function Cronograma() {
               📅 Cronograma de Cursos
             </h1>
             <p className="text-xl text-blue-100 mb-8">
-              Descubre nuestros próximos cursos de Lengua de Señas, artes y oficios. Horarios flexibles y certificación oficial.
+              Descubre nuestros próximos cursos. Horarios flexibles y certificación oficial.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
               <div>

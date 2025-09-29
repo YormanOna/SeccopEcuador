@@ -44,12 +44,6 @@ export default function Cursos() {
             <p className="text-xl text-blue-100 mb-8">
               Formación en Educación Inclusiva, emprendimiento y técnicas especializadas
             </p>
-            <div className="flex items-center justify-center text-blue-100">
-              <span className="flex items-center gap-2">
-                <span className="text-2xl">🎓</span>
-                <span>{courses.length} cursos disponibles</span>
-              </span>
-            </div>
           </div>
         </div>
       </section>

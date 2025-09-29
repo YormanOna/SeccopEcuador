@@ -235,27 +235,24 @@ export default function Card({ course }) {
           </div>
         )}
 
-        {/* Action Button */}
-        <div className="mt-auto">
+        {/* Action Buttons */}
+        <div className="mt-auto space-y-2">
+          {/* Botón de Inscripción */}
+          <Link
+            to={`/contacto?curso=${id}&nombre=${encodeURIComponent(title)}`}
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-red-600 text-white hover:bg-red-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-105"
+          >
+            <i className="fas fa-user-plus"></i>
+            Inscribirse Ahora
+          </Link>
+          
+          {/* Botón de Ver Detalles */}
           <Link
             to={`/cursos/${id}`}
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:scale-105"
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
           >
-            Ver detalles del curso
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
+            Ver detalles
+            <i className="fas fa-info-circle text-sm"></i>
           </Link>
         </div>
       </div>

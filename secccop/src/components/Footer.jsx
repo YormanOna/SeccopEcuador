@@ -29,7 +29,7 @@ export default function Footer() {
   const quickLinks = [
     { label: "Inicio", href: "/" },
     { label: "Cursos", href: "/cursos" },
-    { label: "Asesoría", href: "/asesoria" },
+    { label: "Contacto e Inscripciones", href: "/contacto" },
   ];
 
   const categories = [

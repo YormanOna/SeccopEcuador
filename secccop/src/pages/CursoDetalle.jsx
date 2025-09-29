@@ -430,10 +430,38 @@ export default function CursoDetalle() {
                       </div>
                     )}
 
-                    {/* Botón de acción */}
-                    <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                      Inscribirse - {course.modalidades[selectedModality].type}
-                    </button>
+                    {/* Botón de acción mejorado */}
+                    <Link
+                      to={`/contacto?curso=${course.id}&nombre=${encodeURIComponent(course.title)}`}
+                      className="relative w-full block overflow-hidden rounded-2xl bg-gradient-to-r from-red-500 via-pink-500 to-orange-500 hover:from-red-600 hover:via-pink-600 hover:to-orange-600 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-105 active:scale-95 group"
+                    >
+                      {/* Efectos de fondo */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 group-hover:animate-pulse"></div>
+                      <div className="absolute -top-1 -left-1 w-4 h-4 bg-white/30 rounded-full group-hover:animate-ping"></div>
+                      <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-white/30 rounded-full group-hover:animate-ping animation-delay-300"></div>
+                      
+                      <div className="relative z-10 py-4 px-6 text-center">
+                        <div className="flex items-center justify-center gap-3 text-white font-bold text-lg">
+                          <div className="text-2xl group-hover:animate-bounce">🚀</div>
+                          <div>
+                            <div className="font-extrabold tracking-wide">¡INSCRÍBETE AHORA!</div>
+                            <div className="text-sm font-medium opacity-90">
+                              {course.modalidades[selectedModality].type} • {course.modalidades[selectedModality].duration}
+                            </div>
+                          </div>
+                          <div className="text-xl group-hover:translate-x-1 transition-transform">✨</div>
+                        </div>
+                        
+                        <div className="mt-2 text-xs text-white/80 font-medium">
+                          💥 ¡Respuesta garantizada en menos de 4 horas!
+                        </div>
+                      </div>
+                      
+                      {/* Brillo animado */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               )}

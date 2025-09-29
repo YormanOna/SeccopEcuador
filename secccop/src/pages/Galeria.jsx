@@ -132,10 +132,6 @@ export default function Galeria() {
                 <span>+{allImages.length} Imágenes</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <i className="fas fa-palette text-green-300"></i>
-                <span>{categories.length} Especialidades</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                 <i className="fas fa-award text-orange-300"></i>
                 <span>Calidad Profesional</span>
               </div>

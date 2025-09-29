@@ -79,12 +79,12 @@ export default function Navbar() {
               Cronograma
             </NavLink>
             <NavLink
-              to="/asesoria"
+              to="/contacto"
               className={({ isActive }) =>
                 `${base} ${isActive ? active : inactive}`
               }
             >
-              Asesoría
+              Contacto e Inscripciones
             </NavLink>
           </div>
         </div>
@@ -129,12 +129,12 @@ export default function Navbar() {
             </NavLink>
             <NavLink
               onClick={() => setOpen(false)}
-              to="/asesoria"
+              to="/contacto"
               className={({ isActive }) =>
                 `${base} ${isActive ? active : inactive}`
               }
             >
-              Asesoría
+              Contacto e Inscripciones
             </NavLink>
           </div>
         )}
